@@ -1,10 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
+
+import Auth from "./utils/auth";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -12,7 +19,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem("token");
+  const token = Auth.getToken();
   // return the headers to the context so httpLink can read them
   return {
     headers: {

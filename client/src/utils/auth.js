@@ -2,7 +2,7 @@ import decode from "jwt-decode";
 
 const localStorageKey = "bananaWrappedToken";
 
-export default class Auth {
+class Auth {
   getToken() {
     return localStorage.getItem(localStorageKey);
   }
@@ -30,13 +30,14 @@ export default class Auth {
   }
 
   login(token) {
-    localStorage.setItem(token);
-    window.location.redirect("/");
+    localStorage.setItem(localStorageKey, token);
+    window.location.assign("/");
     //can also decode token and get user data from token then redirect to /user/userID here instead of redirecting to dashboard
   }
 
   logout() {
     localStorage.removeItem(localStorageKey);
-    window.location.redirect("/login");
+    window.location.assign("/login");
   }
 }
+export default new Auth();
