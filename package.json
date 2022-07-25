@@ -1,0 +1,33 @@
+{
+  "name": "wrapped-in-bananas",
+  "version": "1.0.0",
+  "description": "## Contributions * Carrie Thomas * Aubree Alexander * Brian Wood * Carolyn Hudson",
+  "main": "index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server/server.js",
+    "start:dev": "concurrently \"cd server && npx nodemon server.js\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "node server/seeds/index.js",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cthomas265/Wrapped-In-Bananas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cthomas265/Wrapped-In-Bananas/issues"
+  },
+  "homepage": "https://github.com/cthomas265/Wrapped-In-Bananas#readme",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
