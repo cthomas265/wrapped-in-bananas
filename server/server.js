@@ -9,13 +9,14 @@ const PORT = 3001;
 
 const app = express();
 
-app.use(express.urlencoded({ exteded: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
+//if someone hits the home route, serve up client/built/index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
