@@ -5,12 +5,25 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    messages: [Message]
+  }
+
+  type Message { 
+    messageBody: String
+    username: String
+    messageId: ID
   }
 
   type Auth {
     token: String!
     user: User
   }
+
+  input messageInput {
+    messageBody: String
+    username: String
+    messageId: ID
+  } 
 
   type Query {
     users: [User]
@@ -22,7 +35,10 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(_id: ID, email: String, password: String, username: String): User
     deleteUser(_id: ID): User
+    savedMessage(messageData: messageInput): User
   }
+
+
 `;
 
 module.exports = typeDefs;

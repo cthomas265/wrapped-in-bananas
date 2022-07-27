@@ -21,6 +21,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
+
+    //reference Message model
+    messages: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Message'
+    }]
+
   },
   {
     timestamps: true,

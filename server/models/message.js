@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema, model, Types } = require('mongoose')
 
 //AA - how to incorporate signatures?
 //AA - need this model to reference the user model who posts the message
@@ -9,9 +9,14 @@ const messageSchema = new Schema(
         type: String,
         required: "A message is required.",
       },
+      messageId: {
+        type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+      },
+      //AA - will eventually want this to reference an existing user id
       username: {
-        //should be able to reference user model
-        //username of person who's commenting
+        type: String,
+        required: true
       }
     },
     {
@@ -19,5 +24,6 @@ const messageSchema = new Schema(
     }
 );
 
-
-module.exports = messageSchema;
+//tie messageSchema and cast into Message model
+const Message = model('Message', messageSchema)
+module.exports = Message
