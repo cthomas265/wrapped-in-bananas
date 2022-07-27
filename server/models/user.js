@@ -21,7 +21,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
+    verification: {
+      type: String,
+      required: true,
+      minlength: 6,
+    }
   },
+  // verification code required here!!!!!
   {
     timestamps: true,
   }
