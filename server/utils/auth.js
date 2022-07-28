@@ -20,8 +20,10 @@ module.exports = {
     }
     return req
   },
-  signToken: function({ _id, email, username }) {
-    const payload = { _id, email, username }
+ 
+  //Classcode - used here
+  signToken: function({ _id, email, username, classCode }) {
+    const payload = { _id, email, username, classCode }
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration })
   },
   checkAuth: function(context) {

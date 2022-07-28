@@ -21,11 +21,20 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
-    verification: {
+    //CLASSCODE
+    //UofW-VIRT-BO-FSF-PT-02-2022-U-B-TTH
+    classCode: {
       type: String,
-      required: true,
-      minlength: 6,
-    }
+      required: 'A class code is required.',
+      match: [/.+-.+-.+-.+-.+-.+-.+-.+-.+-/, 'Needs to be valid class code.']
+    },
+
+    //reference Message model
+    messages: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Message'
+    }]
+
   },
   // verification code required here!!!!!
   {

@@ -11,11 +11,13 @@ export const ALL_USERS = gql`
 `;
 
 export const USER = gql`
-  query USER($_id: ID, $username: String, $email: String) {
+  query user($_id: ID, $username: String, $email: String) {
     user(_id: $_id, username: $username, email: $email) {
       _id
       username
       email
+      messages{messageBody, messageId, username}
+      classCode
     }
   }
 `;
