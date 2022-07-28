@@ -21,6 +21,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
+    //CLASSCODE
+    //UofW-VIRT-BO-FSF-PT-02-2022-U-B-TTH
+    classCode: {
+      type: String,
+      required: 'A class code is required.',
+      match: [/.+-.+-.+-.+-.+-.+-.+-.+-.+-/, 'Needs to be valid class code.']
+    },
 
     //reference Message model
     messages: [{
