@@ -6,13 +6,15 @@ import Auth from "../utils/auth";
 const Dashboard = () => {
   const navigate = useNavigate();
   const currentUser = Auth.loggedIn();
-
+  console.log(currentUser?.data?._id)
   const { loading, error, data } = useQuery(USER, {
     variables: {
-      _id: currentUser?.data?._id,
+      _id: currentUser.data._id,
+      email: currentUser.data.email,
+      username: currentUser.data.username,
     },
   });
-
+  console.log(data?.user)
   if (!currentUser) {
     navigate("/login");
   }
@@ -28,9 +30,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Welcome, {user.username}</h1>
-      <p>{user.email}</p>
-      <button onClick={Auth.logout}>Log Out</button>
+      <h1>Welcome {user.username}</h1>
     </div>
   );
 };

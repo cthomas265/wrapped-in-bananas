@@ -1,31 +1,35 @@
 import { useState } from "react";
-import { LOGIN } from "../utils/mutations";
+import { ADD_USER } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [classCode, setClassCode] = useState("");
 
-  const [login] = useMutation(LOGIN);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await login({
+    const { data } = await addUser({
       variables: {
         username,
         password,
+        email,
+        classCode,
       },
     });
-    Auth.login(data.login.token);
+    Auth.login(data.addUser.token);
     console.log("success")
-    console.log(data.login.token)
+    // console.log(data.login.token)
 
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h1>Signup</h1>
       <input
         name="username"
         value={username}
@@ -42,9 +46,25 @@ const Login = () => {
         type="password"
         required
       />
-      <button type="submit">Login</button>
+      <input
+        name="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+        type="email"
+        required
+      />
+      <input
+        name="classCode"
+        value={classCode}
+        onChange={(e) => setClassCode(e.target.value)}
+        placeholder="Class Code"
+        type="classCode"
+        required
+      />
+      <button type="submit">Signup</button>
     </form>
   );
 };
 
-export default Login;
+export default Signup;

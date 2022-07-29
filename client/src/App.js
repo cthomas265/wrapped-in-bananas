@@ -9,6 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
 import Login from "./pages/login";
+import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 
 import Auth from "./utils/auth";
@@ -39,8 +40,9 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
