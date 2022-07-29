@@ -12,6 +12,7 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 
 import Auth from "./utils/auth";
+import DemoBook from "./pages/pageFlip";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/pageFlip" element={<DemoBook />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
