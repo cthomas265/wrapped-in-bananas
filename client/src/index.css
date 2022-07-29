@@ -19,14 +19,21 @@ code {
 
 .signatureCanvas {
   border: 1px solid black;
-  width: 90%;
+  width: 100%;
   min-height: 500px;
   justify-content: center;
 }
 
 .signatureBtn {
   margin: 4px;
-  justify-content: center;
+}
+
+.signatureImage {
+  display: block;
+  margin: 2px;
+  border: 1px solid black;
+  max-width: 20%;
+  max-height: 20%;
 }
 
 .popup-overlay {

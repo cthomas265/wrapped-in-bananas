@@ -3,7 +3,7 @@ import SignaturePad from "react-signature-canvas";
 import Popup from "reactjs-popup";
 
 const Signature = () => {
-  const [imageURL, setImageURL] = useState(null);
+  const [imageURL, setImageURL] = useState("");
   const sigCanvas = useRef({});
 
   const clear = () => sigCanvas.current.clear();
@@ -19,7 +19,7 @@ const Signature = () => {
         modal
         overlayStyle
         trigger={<button className={"signatureBtn"}>Open Signature Pad</button>}
-        closeOnDocumentClick={false}
+        closeOnDocumentClick={true}
         className={"popup"}
       >
         {(close) => (
@@ -49,14 +49,7 @@ const Signature = () => {
           <img
             src={imageURL}
             alt="signature"
-            style={{
-              display: "block",
-              margin: "0 auto",
-              border: "1px solid black",
-              width: "20%",
-              height: "20%",
-              margin: "2px",
-            }}
+            className={"signatureImage"}
           />
         ) : null}
       </div>
