@@ -1,41 +1,64 @@
-import React, { useRef } from "react";
-import SignatureCanvas from "react-signature-canvas";
+import React, { useState, useRef } from "react";
+import SignaturePad from "react-signature-canvas";
+import Popup from "reactjs-popup";
 
 const Signature = () => {
-  let sigPad = useRef({});
-  let data = "";
+  const [imageURL, setImageURL] = useState(null);
+  const sigCanvas = useRef({});
 
-  function clear() {
-    sigPad.current.clear();
-  }
+  const clear = () => sigCanvas.current.clear();
 
-  function save() {
-    data = sigPad.current.toDataURL();
-  }
-
-  function show() {
-    sigPad.current.fromDataURL(data);
-  }
+  const save = () =>
+    setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
 
   return (
-    <div className={"container"}>
-      <div className={"sigContainer"}>
-        <SignatureCanvas
-          ref={sigPad}
-          className={"sigPad"}
-          backgroundColor="rgb(95, 195, 152)"
-        />
-      </div>
+    <div className="signaturePage">
+      <h1>Signature Page</h1>
+      <h3>Leave a message for your class!</h3>
+      <Popup
+        modal
+        overlayStyle
+        trigger={<button className={"signatureBtn"}>Open Signature Pad</button>}
+        closeOnDocumentClick={false}
+        className={"popup"}
+      >
+        {(close) => (
+          <>
+            <SignaturePad
+              ref={sigCanvas}
+              canvasProps={{
+                className: "signatureCanvas",
+              }}
+            />
+            <div>
+              <button onClick={clear} className={"signatureBtn"}>
+                Clear
+              </button>
+              <button onClick={close} className={"signatureBtn"}>
+                Close
+              </button>
+              <button onClick={save} className={"signatureBtn"}>
+                Save
+              </button>
+            </div>
+          </>
+        )}
+      </Popup>
       <div>
-        <button onClick={clear} className={"buttons"}>
-          Clear
-        </button>
-        <button onClick={save} className={"buttons"}>
-          Save
-        </button>
-        <button onClick={show} className={"buttons"}>
-          Show
-        </button>
+        {imageURL ? (
+          <img
+            src={imageURL}
+            alt="signature"
+            style={{
+              display: "block",
+              margin: "0 auto",
+              border: "1px solid black",
+              width: "20%",
+              height: "20%",
+              margin: "2px",
+            }}
+          />
+        ) : null}
       </div>
     </div>
   );
