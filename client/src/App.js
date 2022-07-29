@@ -10,6 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
+import Signature from "./pages/signature";
 
 import Auth from "./utils/auth";
 
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signature" element={<Signature />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
