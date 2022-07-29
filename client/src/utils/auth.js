@@ -31,7 +31,7 @@ class Auth {
 
   login(token) {
     localStorage.setItem(localStorageKey, token);
-    window.location.assign("/");
+    window.location.assign("/dashboard");
     //can also decode token and get user data from token then redirect to /user/userID here instead of redirecting to dashboard
   }
 

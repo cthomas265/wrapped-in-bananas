@@ -18,29 +18,34 @@ const Login = () => {
       },
     });
     Auth.login(data.login.token);
+    console.log("success")
+    console.log(data.login.token)
+
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <input
-        name="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-        type="text"
-        required
-      />
-      <input
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        type="password"
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+   <div className="form">
+      <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <input
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+          type="text"
+          required
+        />
+        <input
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          type="password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+   </div>
   );
 };
 
