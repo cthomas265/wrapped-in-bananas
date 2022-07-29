@@ -31,6 +31,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Welcome {user.username}</h1>
+      <button onClick={Auth.logout}>Log Out</button>
     </div>
   );
 };
