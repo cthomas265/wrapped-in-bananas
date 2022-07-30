@@ -14,8 +14,18 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $classCode: String!) {
-    addUser(username: $username, email: $email, password: $password, classCode: $classCode) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+    $classCode: String!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+      classCode: $classCode
+    ) {
       token
       user {
         _id
@@ -52,6 +62,14 @@ export const DELETE_USER = gql`
       _id
       username
       email
+    }
+  }
+`;
+
+export const ADD_SIGNATURE = gql`
+  mutation addSignature($imageURL: String) {
+    addSignature(imageURL: $imageURL) {
+      imageURL
     }
   }
 `;

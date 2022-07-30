@@ -20,6 +20,11 @@ const typeDefs = gql`
     user: User
   }
 
+  type Signature {
+    _id: ID
+    imageURL: String
+  }
+
   input messageInput {
     messageBody: String
     username: String
@@ -29,6 +34,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(_id: ID, username: String, email: String): User
+    signatures: [Signature]
+    signature(_id: ID, imageURL: String): Signature
   }
 
   type Mutation {
@@ -37,6 +44,7 @@ const typeDefs = gql`
     updateUser(_id: ID, email: String, password: String, username: String): User
     deleteUser(_id: ID): User
     saveMessage(messageData: messageInput): User
+    addSignature(imageURL: String): Signature
   }
 
 

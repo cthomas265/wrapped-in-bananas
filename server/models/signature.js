@@ -4,7 +4,7 @@ const signatureSchema = new Schema(
     {
         imageURL: {
             type: String,
-            unique: true
+            required: true
         }
     }
 )

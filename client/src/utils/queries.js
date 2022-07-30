@@ -23,11 +23,11 @@ export const USER = gql`
   }
 `;
 
-export const SIGNATURES = gql`
-query signatures {
-  signatures {
+export const SIGNATURE = gql`
+query signature {
+  signature {
     _id
-    dataURL
+    imageURL
   }
 } 
 `

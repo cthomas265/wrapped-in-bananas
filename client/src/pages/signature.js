@@ -14,7 +14,9 @@ const Signature = () => {
       ...signatures,
       sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
     ]);
+    console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"))
     clear();
+    
   };
 
   return (

@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Signature } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
@@ -26,6 +26,9 @@ const resolvers = {
         where.username = args.username;
       }
       return await User.findOne(where);
+    },
+    signature: async (parent, args, context, info) => {
+      return await Signature.findAll();
     },
   },
   Mutation: {
@@ -76,7 +79,13 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
+    addSignature: async (parent, args, context, info) => {
+      console.log(args)
+      const newSignature = await Signature.create(args);
+      console.log(newSignature)
+      return newSignature
+    },
   },
 };
 
