@@ -3,7 +3,6 @@ import SignaturePad from "react-signature-canvas";
 import Popup from "reactjs-popup";
 
 const Signature = () => {
-  const [imageURL, setImageURL] = useState("");
   const [signatures, setSignatures] = useState([]);
   const sigCanvas = useRef({});
 
@@ -14,7 +13,6 @@ const Signature = () => {
       ...signatures,
       sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
     ]);
-    console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"))
     clear();
     
   };
