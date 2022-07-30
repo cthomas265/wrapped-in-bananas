@@ -22,3 +22,12 @@ export const USER = gql`
     }
   }
 `;
+
+export const SIGNATURES = gql`
+query signatures {
+  signatures {
+    _id
+    dataURL
+  }
+} 
+`

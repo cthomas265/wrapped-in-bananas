@@ -4,16 +4,18 @@ import Popup from "reactjs-popup";
 
 const Signature = () => {
   const [imageURL, setImageURL] = useState("");
-  const [signatures, setSignatures] = useState([])
+  const [signatures, setSignatures] = useState([]);
   const sigCanvas = useRef({});
 
   const clear = () => sigCanvas.current.clear();
 
   const save = () => {
-    setSignatures([...signatures, sigCanvas.current.getTrimmedCanvas().toDataURL("image/png")]);
-    clear()
-  }
-    
+    setSignatures([
+      ...signatures,
+      sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
+    ]);
+    clear();
+  };
 
   return (
     <div className="signaturePage">
@@ -49,8 +51,15 @@ const Signature = () => {
         )}
       </Popup>
       <div>
-        {signatures.map(signature => {
-           return <img src={signature} alt="signature" className={"signatureImage"} key={signature}/>
+        {signatures.map((signature) => {
+          return (
+            <img
+              src={signature}
+              alt="signature"
+              className={"signatureImage"}
+              key={signature}
+            />
+          );
         })}
       </div>
     </div>
