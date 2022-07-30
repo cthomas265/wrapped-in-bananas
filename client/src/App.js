@@ -14,6 +14,7 @@ import Dashboard from "./pages/dashboard";
 import Auth from "./utils/auth";
 import DemoBook from "./pages/pageFlip";
 import StudentPage from './pages/studentPage'
+// import './pages/styles.scss'
 
 const httpLink = createHttpLink({
   uri: "/graphql",
