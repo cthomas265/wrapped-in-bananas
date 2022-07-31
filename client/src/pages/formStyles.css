@@ -1,0 +1,21 @@
+label{
+    color: rgb(16, 15, 15);
+    margin-bottom: 0.5rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem;
+    margin: auto;
+    margin-bottom: 100px;
+    max-width: 600px;
+}
+
+form input {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+    background-color: rgb(56, 56, 56);
+    border-color: rgb(56, 56, 56);
+    color: white; 
+}

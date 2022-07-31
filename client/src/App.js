@@ -9,7 +9,9 @@ import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
 import Login from "./pages/login";
+import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
+import Signature from "./pages/signature";
 
 import Auth from "./utils/auth";
 import DemoBook from "./pages/pageFlip";
@@ -42,10 +44,12 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path='/page' element={<StudentPage />} />
           {/* <Route path="/pageFlip" element={<DemoBook />} /> */}
+          <Route path="/signature" element={<Signature />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
