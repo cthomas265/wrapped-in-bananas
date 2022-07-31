@@ -10,9 +10,18 @@ const typeDefs = gql`
   }
 
   type Message { 
+    _id: ID
     messageBody: String
+    createdAt: String
     username: String
-    messageId: ID
+    comments: [Comment]
+  }
+
+  type Comment {
+    _id: ID
+    commentBody: String
+    createdAt: String
+    username: String
   }
 
   type Auth {
@@ -25,17 +34,13 @@ const typeDefs = gql`
     imageURL: String
   }
 
-  input messageInput {
-    messageBody: String
-    username: String
-    messageId: ID
-  } 
-
   type Query {
     users: [User]
     user(_id: ID, username: String, email: String): User
     signatures: [Signature]
     signature(_id: ID, imageURL: String): Signature
+    messages(username: String): [Message]
+    message(_id: ID!): Message
   }
 
   type Mutation {
@@ -43,8 +48,9 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!, classCode: String!): Auth
     updateUser(_id: ID, email: String, password: String, username: String): User
     deleteUser(_id: ID): User
-    saveMessage(messageData: messageInput): User
     addSignature(imageURL: String): Signature
+    addMessage(messageBody: String!): Message
+    addComment(messageId: ID!, commentBody: String!): Message
   }
 
 

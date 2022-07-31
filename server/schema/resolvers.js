@@ -1,11 +1,12 @@
-const { User, Signature } = require("../models");
+const { User, Signature, Message, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
     users: async (parent, args, context, info) => {
-      return await User.find();
+      return await User.find()
+      // .populate("messages")
     },
     user: async (parent, args, context, info) => {
       
@@ -25,10 +26,18 @@ const resolvers = {
       if (args.username) {
         where.username = args.username;
       }
-      return await User.findOne(where);
+      return await User.findOne(where)
+      // .populate("messages")
     },
     signature: async (parent, args, context, info) => {
       return await Signature.findAll();
+    },
+    messages: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Message.find(params).sort({ createdAt: -1 });
+    },
+    message: async (parent, { _id }) => {
+      return Message.findOne({ _id });
     },
   },
   Mutation: {
@@ -64,27 +73,62 @@ const resolvers = {
     updateUser: async (parent, args, context, info) => {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
-    deleteUser: async (parent, args, context, info) => {
-      return await User.findByIdAndDelete(args._id);
-    },
+    // deleteUser: async (parent, args, context, info) => {
+    //   return await User.findByIdAndDelete(args._id);
+    // },
 
     //context is based on who is logged in
-    saveMessage: async (parent, { messageData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { messages: messageData } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    // saveMessage: async (parent, { messageData }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { messages: messageData } },
+    //       { new: true }
+    //     );
+    //     return updatedUser;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
     addSignature: async (parent, args, context, info) => {
       console.log(args)
       const newSignature = await Signature.create(args);
       console.log(newSignature)
       return newSignature
+    },
+    addMessage: async (parent, args, context) => {
+      if (context.user) {
+        const message = await Message.create({
+          ...args,
+          username: context.user.username,
+        });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { messages: message._id } },
+          { new: true }
+        );
+
+        return message;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addComment: async (parent, { messageId, commentBody }, context) => {
+      if (context.user) {
+        const updatedMessage = await Thought.findOneAndUpdate(
+          { _id: messageId },
+          {
+            $push: {
+              comments: { commenBody, username: context.user.username },
+            },
+          },
+          { new: true, runValidators: true }
+        );
+
+        return updatedMessage;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
