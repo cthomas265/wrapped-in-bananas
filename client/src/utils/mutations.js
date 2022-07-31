@@ -73,3 +73,31 @@ export const ADD_SIGNATURE = gql`
     }
   }
 `;
+
+export const ADD_MESSAGE = gql`
+  mutation addMessage($messageBody: String!) {
+    addMessage(messageBody: $messageBody) {
+      _id
+      messageBody
+      createdAt
+      username
+      comments {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($messageId: ID!, $commentBody: String!) {
+    addComment(messageId: $messageId, commentBody: $commentBody) {
+      _id
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;

@@ -17,8 +17,18 @@ export const USER = gql`
       _id
       username
       email
-      messages{messageBody, messageId, username}
       classCode
+      messages {
+        _id
+        messageBody
+        createdAt
+        comments {
+          _id
+          createdAt
+          commentBody
+          username
+        }
+      }
     }
   }
 `;
@@ -31,3 +41,37 @@ query signature {
   }
 } 
 `
+
+export const ALL_MESSAGES = gql`
+  query messages($username: String) {
+    messages(username: $username) {
+      _id
+      messageBody
+      createdAt
+      username
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
+    }
+  }
+`;
+
+export const MESSAGE = gql`
+  query message($id: ID!) {
+    message(_id: $id) {
+      _id
+      messageBody
+      createdAt
+      username
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
+    }
+  }
+`;
