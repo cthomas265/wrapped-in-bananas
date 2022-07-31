@@ -28,7 +28,7 @@ const resolvers = {
       return await User.findOne(where);
     },
     signature: async (parent, args, context, info) => {
-      return await Signature.findAll();
+      return await Signature.find();
     },
   },
   Mutation: {
