@@ -12,6 +12,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 import Signature from "./pages/signature";
+import MessageBoard from "./pages/messageBoard";
 
 import Auth from "./utils/auth";
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/messageboard" element={<MessageBoard />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
