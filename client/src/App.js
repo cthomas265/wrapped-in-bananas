@@ -12,6 +12,8 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 import Signature from "./pages/signature";
+import ClassCollage from './pages/classCollage';
+import PetCollage from './pages/petCollage';
 
 import Auth from "./utils/auth";
 
@@ -45,6 +47,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/classCollage" element={<ClassCollage />} />
+          <Route path="/petCollage" element={<PetCollage />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
