@@ -69,6 +69,7 @@ export const DELETE_USER = gql`
 export const ADD_SIGNATURE = gql`
   mutation addSignature($imageURL: String) {
     addSignature(imageURL: $imageURL) {
+      _id
       imageURL
     }
   }

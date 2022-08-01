@@ -27,8 +27,8 @@ const resolvers = {
       }
       return await User.findOne(where);
     },
-    signature: async (parent, args, context, info) => {
-      return await Signature.find();
+    signatures: async () => {
+      return Signature.find();
     },
   },
   Mutation: {
@@ -82,9 +82,10 @@ const resolvers = {
     },
     addSignature: async (parent, args, context, info) => {
       console.log(args)
-      const newSignature = await Signature.create(args);
-      console.log(newSignature)
-      return newSignature
+      // const newSignature = await Signature.create(args);
+      // console.log(newSignature)
+      // return newSignature
+      return Signature.create(args);
     },
   },
 };

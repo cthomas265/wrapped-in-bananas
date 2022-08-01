@@ -35,7 +35,6 @@ const typeDefs = gql`
     users: [User]
     user(_id: ID, username: String, email: String): User
     signatures: [Signature]
-    signature(_id: ID, imageURL: String): Signature
   }
 
   type Mutation {

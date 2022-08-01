@@ -6,46 +6,46 @@ import SignatureCanvas from "react-signature-canvas";
 import { Popup } from "reactjs-popup";
 
 const Signature = () => {
- const [signatures, setSignatures] = useState([]);
- const [addSignature] = useMutation(ADD_SIGNATURE)
- const { loading, error, data } = useQuery(SIGNATURE);
+  const [signatures, setSignatures] = useState([]);
+  const [string, setString] = useState("");
+  const [addSignature] = useMutation(ADD_SIGNATURE);
+  const { loading, error, data } = useQuery(SIGNATURE);
 
   const sigCanvas = useRef({});
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-//  const signatureImgs = data?.signature || [];
-//  console.log(signatureImgs)
+  const signatureImgs = data?.signature || [];
+  console.log(signatureImgs);
 
   const clear = () => sigCanvas.current.clear();
 
   const save = async () => {
+    try {
+      await setSignatures([
+        ...signatures,
+        sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
+      ]);
 
-    try{
+      await setString(JSON.stringify(signatures));
 
-        setSignatures([
-          ...signatures,
-          sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
-        ]);
-    
-      const {data}=  await addSignature({
-        variables:{imageUrl: JSON.stringify(signatures)}
-      })
-        
-        clear();
-    }catch(err){
-        console.log(err)
+      const { data } = await addSignature({
+        variables: { imageUrl: "newSignature" },
+      });
+
+      clear();
+    } catch (err) {
+      console.log(err);
     }
-    
   };
 
-  console.log(signatures)
+  console.log(signatures);
 
   return (
     <div className="signaturePage">
       <h1>Signature Page</h1>
-      <h3>Leave a message for your class!</h3>
+      <h3>Don't forget to sign the yearbook!</h3>
       <Popup
         modal
         overlayStyle
