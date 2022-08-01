@@ -85,7 +85,7 @@ const resolvers = {
       // const newSignature = await Signature.create(args);
       // console.log(newSignature)
       // return newSignature
-      return Signature.create(args);
+      return await Signature.create(args);
     },
   },
 };

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { SIGNATURE } from "../utils/queries";
 import { ADD_SIGNATURE } from "../utils/mutations";
@@ -6,9 +6,15 @@ import SignatureCanvas from "react-signature-canvas";
 import { Popup } from "reactjs-popup";
 
 const Signature = () => {
-  const [signatures, setSignatures] = useState([]);
-  const [string, setString] = useState("");
-  const [addSignature] = useMutation(ADD_SIGNATURE);
+
+  // we need to add the "refreshQueries" setting in order to refresh the cache with the latest signature after running the mutation
+  // https://www.apollographql.com/docs/react/data/mutations#refetching-queries
+  const [addSignature] = useMutation(ADD_SIGNATURE, {
+    refetchQueries: [
+      {query: SIGNATURE}, // DocumentNode object parsed with gql
+      'Signatures' // Query name
+    ]
+  });
   const { loading, error, data } = useQuery(SIGNATURE);
 
   const sigCanvas = useRef({});
@@ -16,31 +22,22 @@ const Signature = () => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-  const signatureImgs = data?.signature || [];
-  console.log(signatureImgs);
+  const signatureImgs = data?.signatures || [];
 
   const clear = () => sigCanvas.current.clear();
 
   const save = async () => {
     try {
-      await setSignatures([
-        ...signatures,
-        sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
-      ]);
-
-      await setString(JSON.stringify(signatures));
-
-      const { data } = await addSignature({
-        variables: { imageUrl: "newSignature" },
+      const response = await addSignature({
+        variables: { imageURL: sigCanvas.current.getTrimmedCanvas().toDataURL("image/png") },
       });
+      console.log(response)
 
       clear();
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log(signatures);
 
   return (
     <div className="signaturePage">
@@ -76,23 +73,13 @@ const Signature = () => {
         )}
       </Popup>
       <div>
-        {/* {data?.signature.map((signatures) => {
+        {signatureImgs.map((signature) => {
           return (
             <img
-              src={signatures.imageURL}
+              src={signature.imageURL}
               alt="signature"
               className={"signatureImage"}
-              key={signatures}
-            />
-          );
-        })} */}
-        {signatures.map((signature) => {
-          return (
-            <img
-              src={signature}
-              alt="signature"
-              className={"signatureImage"}
-              key={signature}
+              key={signature._id}
             />
           );
         })}
