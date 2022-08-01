@@ -1,9 +1,15 @@
+import { Image } from '@mantine/core';
 
 const PetCollage = () => {
  
     return (
      <div>
-        <img src={require ('./images/pet-collage.JPEG')} alt='pet collage' />
+        <Image 
+            width={600}
+            height={800}
+            src={require ('./images/pet-collage.JPEG')}
+            alt='pet collage'
+        />
      </div>
     );
   };
