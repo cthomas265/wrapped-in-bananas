@@ -32,7 +32,7 @@ const Dashboard = () => {
     <div>
       <h1>Welcome {user.username}</h1>
       <button onClick={Auth.logout}>Log Out</button>
-      <img src='../../public/images/class-background.JPEG' alt='class-background'/>
+      <img src={require ('./images/class-background.JPEG')} alt='class background' />
     </div>
   );
 };
