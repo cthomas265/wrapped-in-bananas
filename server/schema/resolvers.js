@@ -5,11 +5,10 @@ const { AuthenticationError } = require("apollo-server-express");
 const resolvers = {
   Query: {
     users: async (parent, args, context, info) => {
-      return await User.find()
+      return await User.find();
       // .populate("messages")
     },
     user: async (parent, args, context, info) => {
-      
       if (!args._id && !args.email && !args.username) {
         throw new AuthenticationError(
           "You need to search for a user by _id, email, or username"
@@ -26,7 +25,7 @@ const resolvers = {
       if (args.username) {
         where.username = args.username;
       }
-      return await User.findOne(where)
+      return await User.findOne(where);
       // .populate("messages")
     },
     signature: async (parent, args, context, info) => {
@@ -35,9 +34,6 @@ const resolvers = {
     messages: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Message.find(params).sort({ createdAt: -1 });
-    },
-    message: async (parent, { _id }) => {
-      return Message.findOne({ _id });
     },
   },
   Mutation: {
@@ -90,10 +86,10 @@ const resolvers = {
     //   throw new AuthenticationError('You need to be logged in!');
     // },
     addSignature: async (parent, args, context, info) => {
-      console.log(args)
+      console.log(args);
       const newSignature = await Signature.create(args);
-      console.log(newSignature)
-      return newSignature
+      console.log(newSignature);
+      return newSignature;
     },
     addMessage: async (parent, args, context) => {
       if (context.user) {
@@ -101,33 +97,13 @@ const resolvers = {
           ...args,
           username: context.user.username,
         });
-
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { messages: message._id } },
           { new: true }
         );
-
         return message;
       }
-
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    addComment: async (parent, { messageId, commentBody }, context) => {
-      if (context.user) {
-        const updatedMessage = await Thought.findOneAndUpdate(
-          { _id: messageId },
-          {
-            $push: {
-              comments: { commenBody, username: context.user.username },
-            },
-          },
-          { new: true, runValidators: true }
-        );
-
-        return updatedMessage;
-      }
-
       throw new AuthenticationError("You need to be logged in!");
     },
   },

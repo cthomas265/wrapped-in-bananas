@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require('mongoose')
-const commentSchema = require ('./comment')
 const dateFormat = require('../utils/dateFormat')
 
 //AA - how to incorporate signatures?
@@ -27,7 +26,6 @@ const messageSchema = new Schema(
         type: String,
         required: true
       },
-      comments: [commentSchema]
     },
     {
       toJSON: {

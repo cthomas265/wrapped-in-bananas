@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_MESSAGE } from "../utils/mutations";
 import { ALL_MESSAGES } from "../utils/queries";
 
-const ThoughtForm = () => {
+const MessageForm = () => {
   const [messageText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -64,4 +64,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default MessageForm;

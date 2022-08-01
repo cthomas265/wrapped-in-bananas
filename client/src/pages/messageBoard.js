@@ -25,7 +25,7 @@ const MessageBoard = () => {
           ) : (
             <Message
               Message={messages}
-              title=""
+              title="Class messages:"
             />
           )}
         </div>

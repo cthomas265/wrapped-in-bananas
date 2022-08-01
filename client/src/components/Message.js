@@ -1,11 +1,9 @@
 import React from "react";
-import Comment from "../components/Comment";
-import CommentForm from "../components/CommentForm";
 
 const Message = ({ messages, title }) => {
-  if (!messages.length) {
-    return <h3>No Messages Yet!</h3>;
-  }
+  // if (!messages.length) {
+  //   return <h3>No Messages Yet!</h3>;
+  // }
 
   return (
     <div>
@@ -17,11 +15,8 @@ const Message = ({ messages, title }) => {
               {message.username} message on {message.createdAt}
             </p>
             <div>
-                <p>{message.messageBody}</p>
-                
+              <p>{message.messageBody}</p>
             </div>
-            <Comment />
-            <CommentForm />
           </div>
         ))}
     </div>

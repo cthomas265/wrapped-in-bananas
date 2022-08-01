@@ -81,23 +81,7 @@ export const ADD_MESSAGE = gql`
       messageBody
       createdAt
       username
-      comments {
-        _id
-      }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($messageId: ID!, $commentBody: String!) {
-    addComment(messageId: $messageId, commentBody: $commentBody) {
-      _id
-      comments {
-        _id
-        commentBody
-        createdAt
-        username
-      }
-    }
-  }
-`;

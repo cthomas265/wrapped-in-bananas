@@ -22,12 +22,6 @@ export const USER = gql`
         _id
         messageBody
         createdAt
-        comments {
-          _id
-          createdAt
-          commentBody
-          username
-        }
       }
     }
   }
@@ -49,29 +43,7 @@ export const ALL_MESSAGES = gql`
       messageBody
       createdAt
       username
-      comments {
-        _id
-        createdAt
-        username
-        commentBody
-      }
     }
   }
 `;
 
-export const MESSAGE = gql`
-  query message($id: ID!) {
-    message(_id: $id) {
-      _id
-      messageBody
-      createdAt
-      username
-      comments {
-        _id
-        createdAt
-        username
-        commentBody
-      }
-    }
-  }
-`;

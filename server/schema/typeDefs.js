@@ -14,14 +14,6 @@ const typeDefs = gql`
     messageBody: String
     createdAt: String
     username: String
-    comments: [Comment]
-  }
-
-  type Comment {
-    _id: ID
-    commentBody: String
-    createdAt: String
-    username: String
   }
 
   type Auth {
@@ -40,7 +32,6 @@ const typeDefs = gql`
     signatures: [Signature]
     signature(_id: ID, imageURL: String): Signature
     messages(username: String): [Message]
-    message(_id: ID!): Message
   }
 
   type Mutation {
@@ -50,7 +41,6 @@ const typeDefs = gql`
     deleteUser(_id: ID): User
     addSignature(imageURL: String): Signature
     addMessage(messageBody: String!): Message
-    addComment(messageId: ID!, commentBody: String!): Message
   }
 
 
