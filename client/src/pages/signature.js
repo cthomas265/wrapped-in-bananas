@@ -1,26 +1,48 @@
-import React, { useState, useRef } from "react";
-import SignaturePad from "react-signature-canvas";
-import Popup from "reactjs-popup";
+import React, { useRef } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { SIGNATURE } from "../utils/queries";
+import { ADD_SIGNATURE } from "../utils/mutations";
+import SignatureCanvas from "react-signature-canvas";
+import { Popup } from "reactjs-popup";
 
 const Signature = () => {
-  const [signatures, setSignatures] = useState([]);
+
+  // we need to add the "refreshQueries" setting in order to refresh the cache with the latest signature after running the mutation
+  // https://www.apollographql.com/docs/react/data/mutations#refetching-queries
+  const [addSignature] = useMutation(ADD_SIGNATURE, {
+    refetchQueries: [
+      {query: SIGNATURE}, // DocumentNode object parsed with gql
+      'Signatures' // Query name
+    ]
+  });
+  const { loading, error, data } = useQuery(SIGNATURE);
+
   const sigCanvas = useRef({});
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
+  const signatureImgs = data?.signatures || [];
 
   const clear = () => sigCanvas.current.clear();
 
-  const save = () => {
-    setSignatures([
-      ...signatures,
-      sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
-    ]);
-    clear();
-    
+  const save = async () => {
+    try {
+      const response = await addSignature({
+        variables: { imageURL: sigCanvas.current.getTrimmedCanvas().toDataURL("image/png") },
+      });
+      console.log(response)
+
+      clear();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className="signaturePage">
       <h1>Signature Page</h1>
-      <h3>Leave a message for your class!</h3>
+      <h3>Don't forget to sign the yearbook!</h3>
       <Popup
         modal
         overlayStyle
@@ -30,7 +52,7 @@ const Signature = () => {
       >
         {(close) => (
           <>
-            <SignaturePad
+            <SignatureCanvas
               ref={sigCanvas}
               canvasProps={{
                 className: "signatureCanvas",
@@ -51,13 +73,13 @@ const Signature = () => {
         )}
       </Popup>
       <div>
-        {signatures.map((signature) => {
+        {signatureImgs.map((signature) => {
           return (
             <img
-              src={signature}
+              src={signature.imageURL}
               alt="signature"
               className={"signatureImage"}
-              key={signature}
+              key={signature._id}
             />
           );
         })}

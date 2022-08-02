@@ -28,8 +28,8 @@ export const USER = gql`
 `;
 
 export const SIGNATURE = gql`
-query signature {
-  signature {
+query Signatures {
+  signatures {
     _id
     imageURL
   }

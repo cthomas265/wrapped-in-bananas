@@ -28,8 +28,8 @@ const resolvers = {
       return await User.findOne(where);
       // .populate("messages")
     },
-    signature: async (parent, args, context, info) => {
-      return await Signature.findAll();
+    signatures: async () => {
+      return Signature.find();
     },
     messages: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -104,7 +104,14 @@ const resolvers = {
         );
         return message;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addSignature: async (parent, args, context, info) => {
+      console.log(args)
+      // const newSignature = await Signature.create(args);
+      // console.log(newSignature)
+      // return newSignature
+      return await Signature.create(args);
     },
   },
 };

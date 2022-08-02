@@ -29,11 +29,11 @@ code {
 }
 
 .signatureImage {
-  display: block;
+  display: inline-block;
   margin: 2px;
   border: 1px solid black;
-  max-width: 20%;
-  max-height: 20%;
+  height: 150px;
+  width: 150px;
 }
 
 .popup-overlay {
