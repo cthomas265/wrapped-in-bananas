@@ -6,30 +6,33 @@ import StudentCard from "./studentCard";
 
 const Page = React.forwardRef((props, ref) => {
   return (
-    <div className="demoPage" ref={ref}>
-      {" "}
-      <div className="student-container">
-        {StudentData.map((val, i) => {
-          return (
-            <StudentCard 
-            key={i} 
-            img={val.img} 
-            name={val.name} 
-            bio={val.bio} />
-          );
-        })}
+    <section className="page">
+      <div className="demoPage" ref={ref}>
+        {" "}
+        <div className="page-content">
+        </div>
+        {props.children}
+        <p>Page number: {props.number}</p>
       </div>
-      <p>Page number: {props.number}</p>
-    </div>
+    </section>
   );
 });
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={window.innerWidth} height={window.innerHeight}>
-      <Page number="1"></Page>
-      {/* These need to be changed to Page components */}
-      <Page className="demoPage" number="2">
+    <HTMLFlipBook width={300} height={500}>
+       {StudentData.map((val, i) => {
+          return (
+          <Page number={i + 1}  key={i} >
+              <StudentCard 
+              img={val.img} 
+              name={val.name} 
+              bio={val.bio} />
+          </Page >
+          );
+        })}
+      {/* <Page number="1"></Page> */}
+      {/* <Page className="demoPage" number="2">
         Page 2
       </Page>
       <Page className="demoPage" number="3">
@@ -37,7 +40,7 @@ function StudentPage(props) {
       </Page>
       <Page className="demoPage" number="4">
         Page 4
-      </Page>
+      </Page> */}
     </HTMLFlipBook>
   );
 }
