@@ -2,11 +2,11 @@ import React from "react";
 
 const StudentCard = (props) => {
   return (
-    <div className="student-card">
-      <img src={props.img} alt="student pic" />
+    <div className="page-content">
+      <img src={props.img} alt="student image" className="page-image" />
       <div>
-        <h2>{props.name}</h2>
-        <p>{props.bio}</p>
+        <h2 className="page-header">{props.name}</h2>
+        <p className="page-text">{props.bio}</p>
       </div>
     </div>
   );
