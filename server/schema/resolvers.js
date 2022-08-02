@@ -6,7 +6,6 @@ const resolvers = {
   Query: {
     users: async (parent, args, context, info) => {
       return await User.find();
-      // .populate("messages")
     },
     user: async (parent, args, context, info) => {
       if (!args._id && !args.email && !args.username) {
@@ -26,7 +25,6 @@ const resolvers = {
         where.username = args.username;
       }
       return await User.findOne(where);
-      // .populate("messages")
     },
     signatures: async () => {
       return Signature.find();
@@ -69,22 +67,6 @@ const resolvers = {
     updateUser: async (parent, args, context, info) => {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
-    // deleteUser: async (parent, args, context, info) => {
-    //   return await User.findByIdAndDelete(args._id);
-    // },
-
-    //context is based on who is logged in
-    // saveMessage: async (parent, { messageData }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $push: { messages: messageData } },
-    //       { new: true }
-    //     );
-    //     return updatedUser;
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
     addSignature: async (parent, args, context, info) => {
       console.log(args);
       const newSignature = await Signature.create(args);
@@ -104,13 +86,10 @@ const resolvers = {
         );
         return message;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     addSignature: async (parent, args, context, info) => {
-      console.log(args)
-      // const newSignature = await Signature.create(args);
-      // console.log(newSignature)
-      // return newSignature
+      console.log(args);
       return await Signature.create(args);
     },
   },

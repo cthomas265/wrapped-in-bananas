@@ -1,9 +1,9 @@
 import React from "react";
 
 const Message = ({ messages, title }) => {
-  // if (!messages.length) {
-  //   return <h3>No Messages Yet!</h3>;
-  // }
+  if (!messages.length) {
+    return <h3>No Messages Yet!</h3>;
+  }
 
   return (
     <div>

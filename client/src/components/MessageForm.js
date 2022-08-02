@@ -4,27 +4,16 @@ import { ADD_MESSAGE } from "../utils/mutations";
 import { ALL_MESSAGES } from "../utils/queries";
 
 const MessageForm = () => {
-  const [messageText, setText] = useState("");
+  const [messageBody, setMessageBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addMessage, { error }] = useMutation(ADD_MESSAGE, {
-    update(cache, { data: { addMessage } }) {
-        //wrapped in try catch in case no messages exist
-      try {
-        const { messages } = cache.readQuery({ query: ALL_MESSAGES });
-        cache.writeQuery({
-          query: ALL_MESSAGES,
-          data: { messages: [addMessage, ...messages] },
-        });
-      } catch (e) {
-        console.warn("First user message!");
-      }
-    },
+    refetchQueries: [{ query: ALL_MESSAGES }, "messages"],
   });
 
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
-      setText(event.target.value);
+      setMessageBody(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -35,11 +24,11 @@ const MessageForm = () => {
     try {
       // add message to database
       await addMessage({
-        variables: { messageText },
+        variables: { messageBody },
       });
 
       // clear form
-      setText("");
+      setMessageBody("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -55,7 +44,7 @@ const MessageForm = () => {
       <form onSubmit={handleFormSubmit}>
         <textarea
           placeholder="Write your message here..."
-          value={messageText}
+          value={messageBody}
           onChange={handleChange}
         ></textarea>
         <button type="submit">Submit</button>

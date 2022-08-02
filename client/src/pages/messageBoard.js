@@ -2,8 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { ALL_MESSAGES } from "../utils/queries";
 import Auth from "../utils/auth";
-import Message from "../components/Message"
-import MessageForm from "../components/MessageForm"
+import Message from "../components/Message";
+import MessageForm from "../components/MessageForm";
 
 const MessageBoard = () => {
   const { loading, data } = useQuery(ALL_MESSAGES);
@@ -23,10 +23,7 @@ const MessageBoard = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <Message
-              Message={messages}
-              title="Class messages:"
-            />
+            <Message messages={messages} title="Class messages:" />
           )}
         </div>
       </div>

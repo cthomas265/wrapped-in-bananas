@@ -9,7 +9,7 @@ const typeDefs = gql`
     messages: [Message]
   }
 
-  type Message { 
+  type Message {
     _id: ID
     messageBody: String
     createdAt: String
@@ -35,14 +35,17 @@ const typeDefs = gql`
 
   type Mutation {
     login(username: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, classCode: String!): Auth
-    updateUser( email: String, password: String, username: String): User
+    addUser(
+      username: String!
+      email: String!
+      password: String!
+      classCode: String!
+    ): Auth
+    updateUser(email: String, password: String, username: String): User
     deleteUser(_id: ID): User
     addSignature(imageURL: String): Signature
     addMessage(messageBody: String!): Message
   }
-
-
 `;
 
 module.exports = typeDefs;

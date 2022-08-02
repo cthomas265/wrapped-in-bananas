@@ -28,13 +28,13 @@ export const USER = gql`
 `;
 
 export const SIGNATURE = gql`
-query Signatures {
-  signatures {
-    _id
-    imageURL
+  query Signatures {
+    signatures {
+      _id
+      imageURL
+    }
   }
-} 
-`
+`;
 
 export const ALL_MESSAGES = gql`
   query messages($username: String) {
@@ -46,4 +46,3 @@ export const ALL_MESSAGES = gql`
     }
   }
 `;
-
