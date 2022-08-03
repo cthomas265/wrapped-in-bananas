@@ -15,11 +15,12 @@ import Signature from "./pages/signature";
 import MessageBoard from "./pages/messageBoard";
 import ClassCollage from './pages/classCollage';
 import PetCollage from './pages/petCollage';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import Auth from "./utils/auth";
-import DemoBook from "./pages/pageFlip";
 import StudentPage from './pages/studentPage'
-// import './pages/styles.scss'
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,23 +43,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
   return (
+
     <ApolloProvider client={client}>
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" element={<Signup />} />
+          <Route path='/' element={<StudentPage />} />
+          <Route path="/Signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path='/page' element={<StudentPage />} />
-          {/* <Route path="/pageFlip" element={<DemoBook />} /> */}
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/messageboard" element={<MessageBoard />} />
           <Route path="/classCollage" element={<ClassCollage />} />
           <Route path="/petCollage" element={<PetCollage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
+
   );
 }
 

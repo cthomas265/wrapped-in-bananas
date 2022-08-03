@@ -86,12 +86,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateMessage: async (parent, args, context, info) => {
+    // updateMessage: async (parent, args, context, info) => {
 
-    },
-    deleteMessage: async (parent, args, context, info) => {
+    // },
+    // deleteMessage: async (parent, args, context, info) => {
       
-    }
+    // }
   },
 };
 
