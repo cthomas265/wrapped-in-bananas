@@ -1,9 +1,9 @@
-import pic from "./images/studentPhotos/alan-e.png"
+import pic from "./images/cover.png"
 
 
 function PaddingPage () {
     return (
-            <img src={pic} alt="pic"/>
+            <img src={pic} alt="pic" className="padding"/>
     )
 }
 

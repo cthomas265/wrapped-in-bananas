@@ -1,4 +1,4 @@
-import pic from "./images/studentPhotos/alan-e.png"
+import pic from "./images/cover.png"
 
 
 function FrontCover () {
