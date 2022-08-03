@@ -1,9 +1,6 @@
 import React from 'react';
 // import './Components.css'
 import { Tabs } from '@mantine/core';
-import Dashboard from '../pages/dashboard';
-import Signature from '../pages/signature';
-import PetCollage from '../pages/petCollage';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -27,24 +24,20 @@ const Navbar = () => {
                 defaultValue="/"
             >
 
-                <Tabs.Tab label="Main" value="/">
+                <Tabs.Tab label="Main" value="students">
                     Main
                 </Tabs.Tab>
-
-                <Tabs.Tab label="Signature" value="signature">
+                <Tabs.Tab label="Signature" value="Signature">
                     Signature
                 </Tabs.Tab>
-                <Tabs.Tab label="Pets" value="petCollage">
+                <Tabs.Tab label="Pets" value="PetCollage">
                     Pets
                 </Tabs.Tab>
-                <Tabs.Tab label="Josh" value="Josh">
-                    Josh
-                </Tabs.Tab>
-                <Tabs.Tab label="Carrie" value="classCollage">
+                <Tabs.Tab label="Class" value="classCollage">
                     Class
                 </Tabs.Tab>
-                <Tabs.Tab label="Carolyn" value="carolyn">
-                    Carolyn
+                <Tabs.Tab label="Messages" value="messageboard">
+                    Messages
                 </Tabs.Tab>
             </Tabs>
         </div>

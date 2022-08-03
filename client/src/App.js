@@ -52,9 +52,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<StudentPage />} />
+
+          <Route path="/" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='students' element={<StudentPage />} />
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/messageboard" element={<MessageBoard />} />

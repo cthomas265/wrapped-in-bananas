@@ -56,7 +56,6 @@ code {
   background-color: #3D405B;
 }
 
-
 .navbar {
   color: #F4F1DE;
   font-size: 2rem;
@@ -73,4 +72,16 @@ code {
   text-align: center;
   height: 5%;
   font-size: 1rem;
+}
+
+.signatureImage {
+  background-color: #F4F1DE;
+  width: 20rem;
+  height: 8rem;
+  border-width:thick;
+  border-radius: 15%;
+}
+
+h1, h2, h3, p {
+  font-family: 'Quicksand', sans-serif;
 }
