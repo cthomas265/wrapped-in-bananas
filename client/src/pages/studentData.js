@@ -22,14 +22,14 @@ import micah from "./images/studentPhotos/micah-z.jpg"
 import jenna from "./images/studentPhotos/jenna-a.jpg"
 import sajid from "./images/studentPhotos/sajid-j.jpg"
 // import brian from "./images/studentPhotos/brian-w."
-// import raj from "./images/studentPhotos/raj-r.png"
+import raj from "./images/studentPhotos/raj-r.png"
 
 
 const StudentData = [
   {
     img: alan,
     name: "Alan Edelbeck",
-    bio: "this is a bio",
+    bio: "I don't have a bio.",
   },
   {
     img: alexC,
@@ -38,29 +38,29 @@ const StudentData = [
   },
   {
     img: alexK,
-    name: "alexK",
-    bio: "this is a bio",
+    name: "Alex Kress",
+    bio: "I don't have a bio.",
   },
   {
     img: alexR,
     name: "Alex Running",
-    bio: "I'm Alex. I've always been interested in coding but never decided to take the plunge until now. I graduated with a bachelors in Social Work and did some state/county medical waiver management for a while and now I'm looking to move into this field. I'm married and I have two dogs (one Corgi and one Hound mix). I watch a lot of TV in general from documentaries to horror to action to mystery and anime. I also play a lot of video games and try to read in my down time when I'm not working.",
+    bio: "I'm Alex. I've always been interested in coding but never decided to take the plunge until now. I graduated with a bachelors in Social Work and did some state/county medical waiver management for a while and now I'm looking to move into this field. I'm married and I have two dogs (one Corgi and one Hound mix). I watch a lot of TV in general from documentaries to horror to action to mystery and anime. I play a lot of video games and try to read in my down time when I'm not working.",
   },
   {
     img: aubree,
     name: "Aubree Alexander",
-    bio: "I'm Aubree. I got my bachelor's in Anthropology and minor in Archaeology, but quickly found out I couldn't live a comfortable life financially doing Archaeology field work / museum work so I fell into HR at a startup company 3 years ago and volunteer at the UW Madison paleontology lab for fun on the weekends. I'm completely new to coding so this will be a challenge but excited for the opportunities it will create. I also play video games but on ps4. I am hoping to make enough $ down the road with coding that i can pursue what makes me happy part time which is museum work.",
+    bio: "I'm Aubree. I got my bachelor's in Anthropology and minor in Archaeology, but quickly found out I couldn't live a comfortable life financially doing Archaeology field work / museum work so I fell into HR at a startup company 3 years ago and volunteer at the UW Madison paleontology lab for fun on the weekends. Before this course I was completely new to coding so it was definitely a challenge. I am excited for what the future brings! I am hoping to make enough $ down the road with coding that I can pursue what makes me happy part time which is museum work.",
   },
   // {
-  //   img: //insert image here
+  //   img: brian,
   //   name: "Brian Wood",
   //   bio: "I've always wanted to get into web design. Being in sales left me feeling stifled and gave me no outlet for creativity. I honestly just wanted to do front end web design where I could be creative and make things look good. I signed up for the wrong bootcamp and almost dropped more times than I can count but I have actually really gotten into back-end and now I'm happy I stuck it out and can create the full app instead of being limited on what I can do.",
   // },
-  // {
-  //   img: raj,
-  //   name: "Raj Rai",
-  //   bio: "insert bio here"
-  // }
+  {
+    img: raj,
+    name: "Raj Rai",
+    bio: "I'm an awesome TA but I didn't give the Mongeese team a bio."
+  },
   {
     img: cameron,
     name: "Cameron Sickler",
@@ -89,12 +89,12 @@ const StudentData = [
   {
     img: jenna,
     name: "Jenna Anderson",
-    bio: "Insert bio here"
+    bio: "In this house we hate Jest. DO YOUR OWN SOFTWARE TESTING, COWARD"
   },
   {
     img: jake,
     name: "Jake Torgeson",
-    bio: "insert bio here",
+    bio: "I don't have a bio.",
   },
   {
     img: james,
@@ -104,7 +104,7 @@ const StudentData = [
   {
     img: joshN,
     name: "joshN",
-    bio: "this is a bio",
+    bio: "I don't have a bio.",
   },
   {
     img: joshR,
@@ -144,7 +144,7 @@ const StudentData = [
   {
     img: robby,
     name: "robby",
-    bio: "this is a bio",
+    bio: "I'm the world's best tutor. I like pizza and have never been defeated at  Wii Tennis.",
   },
   {
     img: scott,
