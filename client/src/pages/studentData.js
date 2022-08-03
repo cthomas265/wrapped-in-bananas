@@ -1,5 +1,6 @@
 import alan from "./images/studentPhotos/alan-e.png"
 import alexC from "./images/studentPhotos/alex-c.png"
+import alexK from "./images/studentPhotos/alex-k.png"
 import alexR from "./images/studentPhotos/alex-r.png"
 import aubree from "./images/studentPhotos/aubree-a.png"
 import cameron from "./images/studentPhotos/cameron-s.png"
@@ -11,7 +12,7 @@ import jake from "./images/studentPhotos/jake-t.png"
 import james from "./images/studentPhotos/james-a.png"
 import joshN from "./images/studentPhotos/josh-n.png"
 import joshR from "./images/studentPhotos/josh-r.png"
-import kristina from "./images/studentPhotos/kristina-b.png"
+import kristina from "./images/studentPhotos/kristina-b.jpg"
 import mikeM from "./images/studentPhotos/mike-m.png"
 import mikeS from "./images/studentPhotos/mike-s.png"
 import pat from "./images/studentPhotos/patrick-a.png"
@@ -28,6 +29,11 @@ const StudentData = [
   {
     img: alexC,
     name: "alexC",
+    bio: "this is a bio",
+  },
+  {
+    img: alexK,
+    name: "alexK",
     bio: "this is a bio",
   },
   {
