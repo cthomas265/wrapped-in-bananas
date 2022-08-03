@@ -1,9 +1,6 @@
 const { Schema, model, Types } = require('mongoose')
 const dateFormat = require('../utils/dateFormat')
 
-//AA - how to incorporate signatures?
-//AA - need this model to reference the user model who posts the message
-
 const messageSchema = new Schema(
     {
       messageBody: {
@@ -17,11 +14,6 @@ const messageSchema = new Schema(
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
       },
-      // messageId: {
-      //   type: Schema.Types.ObjectId,
-      //       default: () => new Types.ObjectId()
-      // },
-      //AA - will eventually want this to reference an existing user id
       username: {
         type: String,
         required: true
@@ -34,6 +26,5 @@ const messageSchema = new Schema(
     }
 );
 
-//tie messageSchema and cast into Message model
 const Message = model('Message', messageSchema)
 module.exports = Message

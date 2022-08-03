@@ -3,13 +3,21 @@ import HTMLFlipBook from "react-pageflip";
 import "./styles.scss";
 import StudentData from "./studentData";
 import StudentCard from "./studentCard";
-import FrontCover from "./frontCover";
-import BackCover from "./backCover";
-import PaddingPage from "./paddingPage";
+import{ FrontCover, BackCover} from "./cover";
+import {ClassCollage, PetCollage } from "./collage"
+import Signature from "./signature"
 
 const PageCover = React.forwardRef((props, ref) => {
   return (
     <div className="page page-cover" ref={ref} data-density="hard">
+      <div className="page-content">{props.children}</div>
+    </div>
+  );
+});
+
+const InsertPage = React.forwardRef((props, ref) => {
+  return (
+    <div className="page" ref={ref}>
       <div className="page-content">{props.children}</div>
     </div>
   );
@@ -29,13 +37,13 @@ const Page = React.forwardRef((props, ref) => {
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={600} height={800}>
-      <PageCover>
-        <PaddingPage />
-      </PageCover>
-      <PageCover>
+    <HTMLFlipBook width={600} height={800} className="demo-block600">
+      <PageCover >
         <FrontCover />
       </PageCover>
+      <InsertPage>
+        <ClassCollage />
+      </InsertPage>
       {StudentData.map((val, i) => {
         return (
           <Page number={i + 1} key={i} className="page">
@@ -43,11 +51,14 @@ function StudentPage(props) {
           </Page>
         );
       })}
+      <InsertPage>
+        <Signature />
+      </InsertPage>
+      <InsertPage>
+        <PetCollage />
+      </InsertPage>
       <PageCover>
         <BackCover />
-      </PageCover>
-      <PageCover>
-        <PaddingPage />
       </PageCover>
     </HTMLFlipBook>
   );
