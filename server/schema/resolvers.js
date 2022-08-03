@@ -1,4 +1,4 @@
-const { User, Signature } = require("../models");
+const { User, Signature, Message, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
@@ -8,7 +8,6 @@ const resolvers = {
       return await User.find();
     },
     user: async (parent, args, context, info) => {
-      
       if (!args._id && !args.email && !args.username) {
         throw new AuthenticationError(
           "You need to search for a user by _id, email, or username"
@@ -29,6 +28,10 @@ const resolvers = {
     },
     signatures: async () => {
       return Signature.find();
+    },
+    messages: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Message.find(params).sort({ createdAt: -1 });
     },
   },
   Mutation: {
@@ -64,29 +67,31 @@ const resolvers = {
     updateUser: async (parent, args, context, info) => {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
-    deleteUser: async (parent, args, context, info) => {
-      return await User.findByIdAndDelete(args._id);
-    },
-
-    //context is based on who is logged in
-    saveMessage: async (parent, { messageData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { messages: messageData } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
     addSignature: async (parent, args, context, info) => {
-      console.log(args)
-      // const newSignature = await Signature.create(args);
-      // console.log(newSignature)
-      // return newSignature
+      console.log(args);
       return await Signature.create(args);
     },
+    addMessage: async (parent, args, context) => {
+      if (context.user) {
+        const message = await Message.create({
+          ...args,
+          username: context.user.username,
+        });
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { messages: message._id } },
+          { new: true }
+        );
+        return message;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateMessage: async (parent, args, context, info) => {
+
+    },
+    deleteMessage: async (parent, args, context, info) => {
+      
+    }
   },
 };
 

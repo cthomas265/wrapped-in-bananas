@@ -17,17 +17,32 @@ export const USER = gql`
       _id
       username
       email
-      messages{messageBody, messageId, username}
       classCode
+      messages {
+        _id
+        messageBody
+        createdAt
+      }
     }
   }
 `;
 
 export const SIGNATURE = gql`
-query Signatures {
-  signatures {
-    _id
-    imageURL
+  query Signatures {
+    signatures {
+      _id
+      imageURL
+    }
   }
-} 
-`
+`;
+
+export const ALL_MESSAGES = gql`
+  query messages($username: String) {
+    messages(username: $username) {
+      _id
+      messageBody
+      createdAt
+      username
+    }
+  }
+`;

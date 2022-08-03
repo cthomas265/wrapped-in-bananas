@@ -74,3 +74,20 @@ export const ADD_SIGNATURE = gql`
     }
   }
 `;
+
+export const ADD_MESSAGE = gql`
+  mutation addMessage($messageBody: String!) {
+    addMessage(messageBody: $messageBody) {
+      _id
+      messageBody
+      createdAt
+      username
+    }
+  }
+`;
+
+export const UPDATE_MESSAGE = gql`
+ mutation updateMessage($messageBody: String!) {
+  
+ }
+`
