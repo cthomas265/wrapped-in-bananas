@@ -17,9 +17,7 @@ import ClassCollage from './pages/classCollage';
 import PetCollage from './pages/petCollage';
 
 import Auth from "./utils/auth";
-import DemoBook from "./pages/pageFlip";
 import StudentPage from './pages/studentPage'
-// import './pages/styles.scss'
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,10 +48,9 @@ function App() {
           <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path='/page' element={<StudentPage />} />
-          {/* <Route path="/pageFlip" element={<DemoBook />} /> */}
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/messageboard" element={<MessageBoard />} />
+          <Route path="/messageBoard" element={<MessageBoard />} />
           <Route path="/classCollage" element={<ClassCollage />} />
           <Route path="/petCollage" element={<PetCollage />} />
         </Routes>

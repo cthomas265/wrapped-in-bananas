@@ -46,7 +46,7 @@ const typeDefs = gql`
     addSignature(imageURL: String): Signature
     addMessage(messageBody: String!): Message
     updateMessage(messageBody: String!): Message
-    deleteMessate(messageBody: String!): Message
+    deleteMessage(messageBody: String!): Message
   }
 `;
 

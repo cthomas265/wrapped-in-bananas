@@ -4,6 +4,7 @@ import "./styles.scss";
 import StudentData from "./studentData";
 import StudentCard from "./studentCard";
 import FrontCover from "./frontCover";
+import BackCover from "./backCover";
 import PaddingPage from "./paddingPage";
 
 const PageCover = React.forwardRef((props, ref) => {
