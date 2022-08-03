@@ -43,10 +43,10 @@ function StudentPage(props) {
         );
       })}
       <PageCover>
-        <PaddingPage />
+        <BackCover />
       </PageCover>
       <PageCover>
-        <FrontCover />
+        <PaddingPage />
       </PageCover>
     </HTMLFlipBook>
   );
