@@ -57,11 +57,6 @@ const StudentData = [
     bio: "I've always wanted to get into web design. Being in sales left me feeling stifled and gave me no outlet for creativity. I honestly just wanted to do front end web design where I could be creative and make things look good. I signed up for the wrong bootcamp and almost dropped more times than I can count but I have actually really gotten into back-end and now I'm happy I stuck it out and can create the full app instead of being limited on what I can do.",
   },
   {
-    img: raj,
-    name: "Raj Rai",
-    bio: "insert bio here"
-  },
-  {
     img: cameron,
     name: "Cameron Sickler",
     bio: "Hello, I live in Madison Wisconsin. I graduated with a Bachelors in Communications and worked an insurance job for 3 years. Wasn't crazy about it, spent too much time on the phone with customers in a call center environment. I love computers and know that this would open some career doors so here I am. Big video game.",
@@ -140,6 +135,11 @@ const StudentData = [
     img: sajid,
     name: "Sajid Jaber",
     bio: "Hello I’m Sajid I have a Bachler's in Computer Science from UW whitewater I love coding and learning new things. I  like to play video game"
+  },
+  {
+    img: raj,
+    name: "Raj Rai",
+    bio: "insert bio here"
   },
   {
     img: robby,
