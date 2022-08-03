@@ -10,7 +10,9 @@ import PaddingPage from "./paddingPage";
 const PageCover = React.forwardRef((props, ref) => {
   return (
     <div className="page page-cover" ref={ref} data-density="hard">
-      <div className="page-content">{props.children}</div>
+      <div className="page-content">
+        {props.children}
+        </div>
     </div>
   );
 });
@@ -29,8 +31,8 @@ const Page = React.forwardRef((props, ref) => {
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={600} height={800}>
-      <PageCover>
+    <HTMLFlipBook width={900} height={850} className="demo-block600">
+      <PageCover >
         <PaddingPage />
       </PageCover>
       <PageCover>
