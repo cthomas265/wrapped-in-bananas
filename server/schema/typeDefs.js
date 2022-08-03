@@ -45,8 +45,8 @@ const typeDefs = gql`
     deleteUser(_id: ID): User
     addSignature(imageURL: String): Signature
     addMessage(messageBody: String!): Message
-    updateMessage(messageBody: String!): Message
-    deleteMessate(messageBody: String!): Message
+    updateMessage(messageBody: String!, _id: ID!): Message
+    deleteMessage( _id: ID!): Message
   }
 `;
 
