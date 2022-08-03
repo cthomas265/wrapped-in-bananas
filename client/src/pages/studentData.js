@@ -21,8 +21,8 @@ import scott from "./images/studentPhotos/scott-m.png"
 import micah from "./images/studentPhotos/micah-z.jpg"
 import jenna from "./images/studentPhotos/jenna-a.jpg"
 import sajid from "./images/studentPhotos/sajid-j.jpg"
-// import brian from "./images/studentPhotos/brian-w."
-// import raj from "./images/studentPhotos/raj-r.png"
+import brian from "./images/studentPhotos/brian.png"
+import raj from "./images/studentPhotos/raj.jpeg"
 
 
 const StudentData = [
@@ -34,7 +34,7 @@ const StudentData = [
   {
     img: alexC,
     name: "Alex Christianson",
-    bio: "I’m Alex, one of your amazing TAs. I was a middle school teacher for almost 10 years when I decided that the stress and pay wasn’t worth the toll on my mental health so I decided to roam the wilderness looking for a new career path. During this time of wandering, I was abducted by the Weapon X program. They fused pure JavaScript to my skeleton which obviously gave me superpowers. I then enrolled in boot camp and finished in February. Raj and Maria said I should use my powers as a TA. I also like to play tennis, disc golf, and video games.",
+    bio: "Im Alex, one of your amazing TAs. I was a middle school teacher for almost 10 years when I decided that the stress and pay wasn’t worth the toll on my mental health so I decided to roam the wilderness looking for a new career path. During this time of wandering, I was abducted by the Weapon X program. They fused pure JavaScript to my skeleton which obviously gave me superpowers. I then enrolled in boot camp and finished in February. Raj and Maria said I should use my powers as a TA. I also like to play tennis, disc golf, and video games.",
   },
   {
     img: alexK,
@@ -51,16 +51,16 @@ const StudentData = [
     name: "Aubree Alexander",
     bio: "I'm Aubree. I got my bachelor's in Anthropology and minor in Archaeology, but quickly found out I couldn't live a comfortable life financially doing Archaeology field work / museum work so I fell into HR at a startup company 3 years ago and volunteer at the UW Madison paleontology lab for fun on the weekends. I'm completely new to coding so this will be a challenge but excited for the opportunities it will create. I also play video games but on ps4. I am hoping to make enough $ down the road with coding that i can pursue what makes me happy part time which is museum work.",
   },
-  // {
-  //   img: //insert image here
-  //   name: "Brian Wood",
-  //   bio: "I've always wanted to get into web design. Being in sales left me feeling stifled and gave me no outlet for creativity. I honestly just wanted to do front end web design where I could be creative and make things look good. I signed up for the wrong bootcamp and almost dropped more times than I can count but I have actually really gotten into back-end and now I'm happy I stuck it out and can create the full app instead of being limited on what I can do.",
-  // },
-  // {
-  //   img: raj,
-  //   name: "Raj Rai",
-  //   bio: "insert bio here"
-  // }
+  {
+    img: brian,
+    name: "Brian Wood",
+    bio: "I've always wanted to get into web design. Being in sales left me feeling stifled and gave me no outlet for creativity. I honestly just wanted to do front end web design where I could be creative and make things look good. I signed up for the wrong bootcamp and almost dropped more times than I can count but I have actually really gotten into back-end and now I'm happy I stuck it out and can create the full app instead of being limited on what I can do.",
+  },
+  {
+    img: raj,
+    name: "Raj Rai",
+    bio: "insert bio here"
+  },
   {
     img: cameron,
     name: "Cameron Sickler",
