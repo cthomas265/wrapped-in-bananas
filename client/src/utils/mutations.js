@@ -86,3 +86,8 @@ export const ADD_MESSAGE = gql`
   }
 `;
 
+export const UPDATE_MESSAGE = gql`
+ mutation updateMessage($messageBody: String!) {
+  
+ }
+`

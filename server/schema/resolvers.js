@@ -69,9 +69,7 @@ const resolvers = {
     },
     addSignature: async (parent, args, context, info) => {
       console.log(args);
-      const newSignature = await Signature.create(args);
-      console.log(newSignature);
-      return newSignature;
+      return await Signature.create(args);
     },
     addMessage: async (parent, args, context) => {
       if (context.user) {
@@ -88,10 +86,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addSignature: async (parent, args, context, info) => {
-      console.log(args);
-      return await Signature.create(args);
+    updateMessage: async (parent, args, context, info) => {
+
     },
+    deleteMessage: async (parent, args, context, info) => {
+      
+    }
   },
 };
 
