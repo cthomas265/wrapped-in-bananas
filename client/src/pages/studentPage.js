@@ -3,10 +3,8 @@ import HTMLFlipBook from "react-pageflip";
 import "./styles.scss";
 import StudentData from "./studentData";
 import StudentCard from "./studentCard";
-import FrontCover from "./frontCover";
-import BackCover from "./backCover";
-import ClassCollage from "./classCollage"
-import PetCollage from "./petCollage"
+import{ FrontCover, BackCover} from "./cover";
+import {ClassCollage, PetCollage } from "./collage"
 import Signature from "./signature"
 
 const PageCover = React.forwardRef((props, ref) => {
@@ -25,14 +23,6 @@ const InsertPage = React.forwardRef((props, ref) => {
   );
 });
 
-// const BackPage = React.forwardRef((props, ref) => {
-//   return (
-//     <div className="page" ref={ref}>
-//       <div className="page-content">{props.children}</div>
-//     </div>
-//   );
-// });
-
 const Page = React.forwardRef((props, ref) => {
   return (
     <div className="page" ref={ref}>
@@ -47,8 +37,8 @@ const Page = React.forwardRef((props, ref) => {
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={900} height={850} className="demo-block600">
-      <PageCover>
+    <HTMLFlipBook width={600} height={800} className="demo-block600">
+      <PageCover >
         <FrontCover />
       </PageCover>
       <InsertPage>

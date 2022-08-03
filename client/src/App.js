@@ -13,8 +13,7 @@ import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 import Signature from "./pages/signature";
 import MessageBoard from "./pages/messageBoard";
-import ClassCollage from './pages/classCollage';
-import PetCollage from './pages/petCollage';
+import {ClassCollage, PetCollage} from './pages/collage';
 
 import Auth from "./utils/auth";
 import StudentPage from './pages/studentPage'
