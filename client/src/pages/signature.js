@@ -7,14 +7,13 @@ import { Popup } from "reactjs-popup";
 import { Button } from "@mantine/core";
 
 const Signature = () => {
-
   // we need to add the "refreshQueries" setting in order to refresh the cache with the latest signature after running the mutation
   // https://www.apollographql.com/docs/react/data/mutations#refetching-queries
   const [addSignature] = useMutation(ADD_SIGNATURE, {
     refetchQueries: [
-      {query: SIGNATURE}, // DocumentNode object parsed with gql
-      'Signatures' // Query name
-    ]
+      { query: SIGNATURE }, // DocumentNode object parsed with gql
+      "Signatures", // Query name
+    ],
   });
   const { loading, error, data } = useQuery(SIGNATURE);
 
@@ -30,9 +29,11 @@ const Signature = () => {
   const save = async () => {
     try {
       const response = await addSignature({
-        variables: { imageURL: sigCanvas.current.getTrimmedCanvas().toDataURL("image/png") },
+        variables: {
+          imageURL: sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
+        },
       });
-      console.log(response)
+      console.log(response);
 
       clear();
     } catch (err) {

@@ -68,7 +68,7 @@ const resolvers = {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
     addSignature: async (parent, args, context, info) => {
-      console.log(args);
+      // console.log(args);
       return await Signature.create(args);
     },
     addMessage: async (parent, args, context) => {
