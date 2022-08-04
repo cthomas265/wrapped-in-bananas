@@ -19,9 +19,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //if someone hits the home route, serve up client/built/index.html
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 connection.once("open", async () => {
   const server = new ApolloServer({
