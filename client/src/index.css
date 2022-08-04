@@ -32,9 +32,12 @@ code {
 .signatureImage {
   display: inline-block;
   margin: 2px;
-  border: 1px solid black;
-  height: 150px;
-  width: 150px;
+  border: solid black;
+  background-color: #F4F1DE;
+  width: 20rem;
+  height: 8rem;
+  border-width: medium;
+  border-radius: 15%;
 }
 
 .popup-overlay {
@@ -74,14 +77,10 @@ code {
   font-size: 1rem;
 }
 
-.signatureImage {
-  background-color: #F4F1DE;
-  width: 20rem;
-  height: 8rem;
-  border-width:thick;
-  border-radius: 15%;
-}
-
 h1, h2, h3, p {
   font-family: 'Quicksand', sans-serif;
+}
+
+.pets {
+    padding: 50px;
 }
