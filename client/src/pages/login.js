@@ -46,7 +46,8 @@ const Login = () => {
           />
           <Button  radius='md'
                     size="lg" 
-                    type="submit">
+                    type="submit"
+                    color="cyan">
                       Login
                     </Button>
 
