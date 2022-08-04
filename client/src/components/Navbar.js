@@ -35,14 +35,6 @@ const Navbar = () => {
                 <Text size="lg" color="White">Signature</Text>    
                 </Tabs.Tab>
 
-                <Tabs.Tab label="Pets" value="PetCollage">
-                <Text size="lg" color="White">Pets</Text>
-                </Tabs.Tab>
-
-                <Tabs.Tab label="Class" value="classCollage">
-                <Text size="lg" color="White">Class</Text>   
-                </Tabs.Tab>
-
                 <Tabs.Tab label="Messages" value="messageboard">
                 <Text size="lg" color="White">Messages</Text>    
                 </Tabs.Tab>
