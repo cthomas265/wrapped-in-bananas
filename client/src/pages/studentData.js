@@ -54,7 +54,7 @@ const StudentData = [
   {
     img: brian,
     name: "Brian Wood",
-    bio: "I've always wanted to get into web design. Being in sales left me feeling stifled and gave me no outlet for creativity. I honestly just wanted to do front end web design where I could be creative and make things look good. I signed up for the wrong bootcamp and almost dropped more times than I can count but I have actually really gotten into back-end and now I'm happy I stuck it out and can create the full app instead of being limited on what I can do.",
+    bio: "I wanna be the very best Like no one ever was. To catch them is my real test to train them is my cause. I will travel across the land searching far and wide, teach Pokémon to understand the power that's inside! Every challenge along the way, with courage I will face. I will battle every day To claim my rightful place. Come with me the time is right, there's no better team! Arm in arm, we'll win the fight It's always been our dream... Gotta catch 'em all... [Guitar Solo]",
   },
   {
     img: cameron,
