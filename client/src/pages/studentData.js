@@ -16,7 +16,7 @@ import kristina from "./images/studentPhotos/kristina-b.jpg"
 import mikeM from "./images/studentPhotos/mike-m.png"
 import mikeS from "./images/studentPhotos/mike-s.png"
 import pat from "./images/studentPhotos/patrick-a.png"
-import robby from "./images/studentPhotos/robby-k.png"
+import robby from "./images/studentPhotos/robby-k-2.png"
 import scott from "./images/studentPhotos/scott-m.png"
 import micah from "./images/studentPhotos/micah-z.jpg"
 import jenna from "./images/studentPhotos/jenna-a.jpg"
@@ -33,7 +33,7 @@ const StudentData = [
   },
   {
     img: alexC,
-    name: "Alex Christianson",
+    name: "Alex Christianson (TA)",
     bio: "Im Alex, one of your amazing TAs. I was a middle school teacher for almost 10 years when I decided that the stress and pay wasn’t worth the toll on my mental health so I decided to roam the wilderness looking for a new career path. During this time of wandering, I was abducted by the Weapon X program. They fused pure JavaScript to my skeleton which obviously gave me superpowers. I then enrolled in boot camp and finished in February. Raj and Maria said I should use my powers as a TA. I also like to play tennis, disc golf, and video games.",
   },
   {
@@ -98,7 +98,7 @@ const StudentData = [
   },
   {
     img: joshN,
-    name: "Josh Naylor",
+    name: "Josh Naylor (Instructor)",
     bio: "I don't have a bio.",
   },
   {
@@ -138,12 +138,12 @@ const StudentData = [
   },
   {
     img: raj,
-    name: "Raj Rai",
+    name: "Raj Rai (TA)",
     bio: "I'm an awesome TA but didn't give the team a bio."
   },
   {
     img: robby,
-    name: "robby",
+    name: "Robby Kurle (Tutor)",
     bio: "I'm a climber bum boxer who somehow graduated from University of Florida and took the Bootcamp in 2018. I used to teach English and owned a farm in California. I've been tutoring since 2019 and worked as a Front End Engineer and Test Engineer in Java through 2021. I am currently working on data for a project called Wikiclimber. I like pizza, short walks on the beach, and I have never been defeated at Wii Tennis.",
   },
   {

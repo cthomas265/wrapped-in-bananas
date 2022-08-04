@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { USER } from "../utils/queries";
 import Auth from "../utils/auth";
 //import mantine
-import { Image, Button } from '@mantine/core';
+import { Image, Button, Center } from '@mantine/core';
 
 
 const Dashboard = () => {
@@ -33,8 +33,12 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Center>
       <h1>Welcome {user.username}</h1>
+      </Center>
+      <Center>
       <Button onClick={Auth.logout} color="cyan" >Log Out</Button>
+      </Center>
       <div>
         <Image 
             width={1500}
