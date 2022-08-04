@@ -29,7 +29,7 @@ Graduates of the Spring 2022 UW Extensions Coding Bootcamp can save this digital
 
 ## Deployed Application
 
-View the deployed application on [Heroku](https://git.heroku.com/wrapped-in-bananas.git)
+View the deployed application on [Heroku](https://wrapped-in-bananas.herokuapp.com/)
 
 ## Preview
 
