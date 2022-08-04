@@ -83,7 +83,12 @@ const Message = ({ messages }) => {
                     }
                   />
                   <Button onClick={handleSaveEdit}>Save</Button>
-                  <Button onClick={() => setMessageToEdit(null)}>Cancel</Button>
+                  <Button 
+                    onClick={() => setMessageToEdit(null)}
+                    color="gray"
+                    >
+                      Cancel
+                      </Button>
                 </>
               ) : (
                 <p>{message.messageBody}</p>
