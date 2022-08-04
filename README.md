@@ -29,9 +29,13 @@ Graduates of the Spring 2022 UW Extensions Coding Bootcamp can save this digital
 
 ## Deployed Application
 
-View the deployed application on [Heroku]()
+View the deployed application on [Heroku](https://wrapped-in-bananas.herokuapp.com/)
 
 ## Preview
+
+The following GIF demonstrates the yearbook's appearance and functionality:
+
+![GIF of Wrapped In Bananas](./client/src/pages/images/wrapped-in-bananas-preview.gif)
 
 
 ## Creators
