@@ -5,7 +5,13 @@ import { ALL_MESSAGES } from "../utils/queries";
 import { Button, Card } from "@mantine/core";
 
 const Message = ({ messages }) => {
-  // const updateMessage = useMutation(UPDATE_MESSAGE);
+  // const updateMessage = useMutation(UPDATE_MESSAGE, {
+  //   refetchQueries: [
+  //     {query: ALL_MESSAGES},
+  //     "messages"
+  //   ]
+  // });
+
   const [deleteMessage] = useMutation(DELETE_MESSAGE, {
     refetchQueries: [
       {query: ALL_MESSAGES},
@@ -26,7 +32,6 @@ const Message = ({ messages }) => {
 
   const handleDeleteMessage = async (id) => {
     try {
-      // console.log(id);
       await deleteMessage({
         variables: { _id: id },
       });
