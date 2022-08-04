@@ -37,7 +37,7 @@ class Auth {
 
   logout() {
     localStorage.removeItem(localStorageKey);
-    window.location.assign("/login");
+    window.location.assign("/");
   }
 }
 export default new Auth();

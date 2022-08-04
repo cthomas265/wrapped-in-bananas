@@ -14,6 +14,7 @@ import Dashboard from "./pages/dashboard";
 import Signature from "./pages/signature";
 import MessageBoard from "./pages/messageBoard";
 import {ClassCollage, PetCollage} from './pages/collage';
+import LoginAndSignup from './pages/loginAndSignup';
 
 import Auth from "./utils/auth";
 import StudentPage from './pages/studentPage'
@@ -44,8 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LoginAndSignup />} />
           <Route path='/page' element={<StudentPage />} />
           <Route path="/signature" element={<Signature />} />
           <Route path="/dashboard" element={<Dashboard />} />
