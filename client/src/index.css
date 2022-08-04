@@ -143,3 +143,8 @@ Button {
   background-color: rgba(236, 234, 234, 0.699);
 }
 /* end message board styles */
+
+/* end yearbook page font */
+.cover-content h1 {
+  font-family: 'Uchen', serif;
+}
