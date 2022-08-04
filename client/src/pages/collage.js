@@ -1,4 +1,4 @@
-import { Image } from '@mantine/core';
+import { Image, Center } from '@mantine/core';
 import collage from "./images/class-collage.JPG"
 import pets from "./images/pet-collage.JPG"
 
