@@ -4,9 +4,18 @@ import { USER } from "../utils/queries";
 import Auth from "../utils/auth";
 //import mantine
 import { Image } from '@mantine/core';
+import { Routes, Route } from 'react-router-dom'
 
 
 const Dashboard = () => {
+
+
+
+    const navigateToPages = () => {
+      //navgiate to yearbook pages
+      navigate('/page')
+    }
+
   const navigate = useNavigate();
   const currentUser = Auth.loggedIn();
   console.log(currentUser?.data?._id)
@@ -35,6 +44,7 @@ const Dashboard = () => {
     <div>
       <h1>Welcome {user.username}</h1>
       <button onClick={Auth.logout}>Log Out</button>
+      <button onClick={navigateToPages}>View yearbook</button>
       <div>
         <Image 
             width={1500}
