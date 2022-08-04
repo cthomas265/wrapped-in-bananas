@@ -1,31 +1,24 @@
-import { Image } from '@mantine/core';
+import { Image, Center } from '@mantine/core';
+import collage from "./images/class-collage.JPG"
+import pets from "./images/pet-collage.JPG"
 
 const ClassCollage = () => {
  
     return (
-      <div>
-        <Image 
-            width={600}
-            height={800}
-            src={require ('./images/class-collage.JPG')}
-            alt='class collage'
-            // <img src={require ('./images/pet-collage.JPEG')} alt='pet collage' />
-        />
-    </div>
+      <Center>
+      <div style={{ backgroundImage: `url(${collage})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 700, height: 700}}>
+      </div>
+      </Center>
     );
   };
 
   const PetCollage = () => {
  
     return (
-     <div>
-        <Image 
-            width={600}
-            height={800}
-            src={require ('./images/pet-collage.JPEG')}
-            alt='pet collage'
-        />
-     </div>
+      <Center>
+      <div style={{ backgroundImage: `url(${pets})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"fit", width: 700, height: 700}}>
+      </div>
+      </Center>
     );
   };
   

@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <div className="footer">
-            © 2020  Aubree- Brian - Carrie - Carolyn 
+            © 2022  Aubree • Brian • Carrie • Carolyn 
         </div>
     );
 };

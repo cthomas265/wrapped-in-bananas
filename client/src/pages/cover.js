@@ -2,14 +2,9 @@ import pic from "./images/cover.png";
 
 function FrontCover() {
   return (
-    <div className="page-cover">
-      <div className="book-cover-pic">
-        <img className="cover-img" src={pic} alt="pic" />
+    <div className="page-cover" style={{backgroundImage: `url(${pic})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 650, height: 700}}>
+      <div className="coverContent">
       </div>
-      <div className="cover-content">
-        <h1>YearBook</h1>
-      </div>
-
     </div>
   );
 }
@@ -17,14 +12,12 @@ function FrontCover() {
 function BackCover() {
   return (
     <div className="page-cover">
-      <div className="book-cover-pic">
-        <img className="cover-img" src={pic} alt="pic" />
-      </div>
       <div className="cover-content">
-        <h1>End YearBook</h1>
+        <h1>Now Your Story Begins</h1>
+        <h1>Congratulations!!!</h1>
       </div>
     </div>
   );
 }
 
-export {FrontCover, BackCover};
+export { FrontCover, BackCover };

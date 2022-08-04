@@ -68,7 +68,7 @@ const resolvers = {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
     addSignature: async (parent, args, context, info) => {
-      console.log(args);
+      // console.log(args);
       return await Signature.create(args);
     },
     addMessage: async (parent, args, context) => {
@@ -103,10 +103,10 @@ const resolvers = {
         }
       }
     },
-    deleteMessage: async (parent, args, context, info) => {
+    deleteMessage: async (parent, args, context) => {
       if (context.user) {
         const messageToDelete = await Message.findById(args._id);
-        console.log(messageToDelete, context.user)
+        console.log(messageToDelete)
         if (messageToDelete.username === context.user.username) {
          
           const deletedMessage = await Message.findByIdAndDelete(args._id)
@@ -116,7 +116,6 @@ const resolvers = {
             { $pull:  { messages: args._id }},
             { new: true }
           );
-          console.log("messages", deletedMessage)
           return deletedMessage;
         } else {
           throw new AuthenticationError("Cannot delete this message.");
