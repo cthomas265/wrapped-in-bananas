@@ -44,11 +44,12 @@ const Login = () => {
             type="password"
             required
           />
-          <Button  radius='md' size="lg" type="submit">Login</Button>
+          <Button  radius='md'
+                    size="lg" 
+                    type="submit">
+                      Login
+                    </Button>
 
-          <Button radius='md' size="lg" type='submit'>
-            <a href='/signup'>Sign up</a>
-          </Button>
         </form>
     </div>
   );

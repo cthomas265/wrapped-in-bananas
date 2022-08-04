@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F2CC8F;
 }
 
 code {
@@ -77,4 +78,12 @@ h1, h2, h3, p {
 
 .pets {
     padding: 50px;
+}
+
+SimpleGrid {
+  margin: 10rem;
+}
+
+Button {
+  margin: .75rem;
 }
