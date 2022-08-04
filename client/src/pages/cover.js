@@ -6,10 +6,9 @@ function FrontCover() {
       <div className="book-cover-pic">
         <img className="cover-img" src={pic} alt="pic" />
       </div>
-      <div className="cover-content">
+      <div className="coverContent">
         <h1>YearBook</h1>
       </div>
-
     </div>
   );
 }
@@ -20,11 +19,11 @@ function BackCover() {
       <div className="book-cover-pic">
         <img className="cover-img" src={pic} alt="pic" />
       </div>
-      <div className="cover-content">
+      <div className="coverContent">
         <h1>End YearBook</h1>
       </div>
     </div>
   );
 }
 
-export {FrontCover, BackCover};
+export { FrontCover, BackCover };

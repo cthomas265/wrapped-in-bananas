@@ -87,3 +87,8 @@ SimpleGrid {
 Button {
   margin: .75rem;
 }
+
+.collages {
+  justify-content: center;
+  padding-top: 25px;
+}
