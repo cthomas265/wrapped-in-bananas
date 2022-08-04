@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { DELETE_MESSAGE } from "../utils/mutations";
+import { DELETE_MESSAGE, UPDATE_MESSAGE } from "../utils/mutations";
 import { ALL_MESSAGES } from "../utils/queries";
 import { Button, Card } from "@mantine/core";
 
-const Message = ({ messages }) => {
-  // const updateMessage = useMutation(UPDATE_MESSAGE, {
-  //   refetchQueries: [
-  //     {query: ALL_MESSAGES},
-  //     "messages"
-  //   ]
-  // });
+const Message = ({ messages, user }) => {
+  const updateMessage = useMutation(UPDATE_MESSAGE, {
+    refetchQueries: [
+      {query: ALL_MESSAGES},
+      "messages"
+    ]
+  });
 
   const [deleteMessage] = useMutation(DELETE_MESSAGE, {
     refetchQueries: [
@@ -20,6 +20,7 @@ const Message = ({ messages }) => {
   });
 
   const [alert, setAlert] = useState(false);
+  // const [currentUser, setCurrentUser] = useState()
 
   useEffect(() => {
     const change = setTimeout(() => {
@@ -39,6 +40,7 @@ const Message = ({ messages }) => {
       console.error(err);
     }
   };
+
 
   if (!messages.length) {
     return <h3>No Messages Yet!</h3>;
@@ -67,8 +69,7 @@ const Message = ({ messages }) => {
               {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
 
 
-
-
+              {/* {currentUser ?  */}
               <Button
                 type="submit"
                 color="gray"
@@ -78,7 +79,11 @@ const Message = ({ messages }) => {
                 }}
               >
                 Delete
-              </Button>
+              </Button> 
+              {/* : null
+            }  */}
+
+              
             </div>
           </Card>
         ))}
