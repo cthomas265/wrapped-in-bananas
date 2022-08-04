@@ -32,9 +32,12 @@ code {
 .signatureImage {
   display: inline-block;
   margin: 2px;
-  border: 1px solid black;
-  height: 150px;
-  width: 150px;
+  border: solid black;
+  background-color: #F4F1DE;
+  width: 20rem;
+  height: 8rem;
+  border-width: medium;
+  border-radius: 15%;
 }
 
 .popup-overlay {
@@ -46,4 +49,38 @@ code {
   background: rgb(255, 255, 255);
   width: 50%;
   padding: 5px;
+}
+
+.Page {
+  right: 50%
+}
+
+.navbar {
+  background-color: #3D405B;
+}
+
+.navbar {
+  color: #F4F1DE;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.footer {
+  background-color: #3D405B;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #F4F1DE;
+  text-align: center;
+  height: 5%;
+  font-size: 1rem;
+}
+
+h1, h2, h3, p {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pets {
+    padding: 50px;
 }

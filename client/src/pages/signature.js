@@ -4,6 +4,7 @@ import { SIGNATURE } from "../utils/queries";
 import { ADD_SIGNATURE } from "../utils/mutations";
 import SignatureCanvas from "react-signature-canvas";
 import { Popup } from "reactjs-popup";
+import { Button } from "@mantine/core";
 
 const Signature = () => {
 
@@ -46,7 +47,7 @@ const Signature = () => {
       <Popup
         modal
         overlayStyle
-        trigger={<button className={"signatureBtn"}>Open Signature Pad</button>}
+        trigger={<Button className={"signatureBtn"}>Open Signature Pad</Button>}
         closeOnDocumentClick={true}
         className={"popup"}
       >

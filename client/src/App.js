@@ -8,16 +8,17 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
-import Login from "./pages/login";
-import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 import Signature from "./pages/signature";
 import MessageBoard from "./pages/messageBoard";
-import {ClassCollage, PetCollage} from './pages/collage';
-import LoginAndSignup from './pages/loginAndSignup';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import Auth from "./utils/auth";
 import StudentPage from './pages/studentPage'
+
+import {ClassCollage, PetCollage} from './pages/collage';
+import LoginAndSignup from './pages/loginAndSignup';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -40,10 +41,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
   return (
+
     <ApolloProvider client={client}>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<LoginAndSignup />} />
           <Route path='/page' element={<StudentPage />} />
@@ -53,8 +58,10 @@ function App() {
           <Route path="/classCollage" element={<ClassCollage />} />
           <Route path="/petCollage" element={<PetCollage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
+
   );
 }
 
