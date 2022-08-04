@@ -2,8 +2,7 @@ import React from 'react';
 // import './Components.css'
 import { Tabs } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-
-
+import { Text } from '@mantine/core';
 
 
 
@@ -11,6 +10,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     return (
         <div className="navbar">
+            <Text size="lg"></Text>
             <Tabs 
                 orientation='vertical' 
                 variant="outline" 
@@ -23,23 +23,32 @@ const Navbar = () => {
                 }}  
                 defaultValue="/"
             >
+                <Tabs.Tab label="Dashboard" value="Dashboard">
+                <Text size="lg" color="White">Dashboard</Text>    
+                </Tabs.Tab>
 
-                <Tabs.Tab label="Main" value="students">
-                    Main
+                <Tabs.Tab label="page" value="page">
+                <Text size="lg" color="White">Yearbook</Text>    
                 </Tabs.Tab>
+
                 <Tabs.Tab label="Signature" value="Signature">
-                    Signature
+                <Text size="lg" color="White">Signature</Text>    
                 </Tabs.Tab>
+
                 <Tabs.Tab label="Pets" value="PetCollage">
-                    Pets
+                <Text size="lg" color="White">Pets</Text>
                 </Tabs.Tab>
+
                 <Tabs.Tab label="Class" value="classCollage">
-                    Class
+                <Text size="lg" color="White">Class</Text>   
                 </Tabs.Tab>
+
                 <Tabs.Tab label="Messages" value="messageboard">
-                    Messages
+                <Text size="lg" color="White">Messages</Text>    
                 </Tabs.Tab>
             </Tabs>
+            
+                
         </div>
     );
 }

@@ -3,6 +3,7 @@ import { ADD_USER } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import "./formStyles.css"
+import { Button } from "@mantine/core";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -64,7 +65,12 @@ const Signup = () => {
           type="classCode"
           required
         />
-        <button type="submit">Signup</button>
+        <Button type="submit"  
+                radius='md' 
+                size="lg" 
+                color="#e07a5f">
+                  Signup
+                </Button>
       </form>
     </div>
   );
