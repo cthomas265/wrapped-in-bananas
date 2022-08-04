@@ -5,7 +5,6 @@ import StudentData from "./studentData";
 import StudentCard from "./studentCard";
 import{ FrontCover, BackCover} from "./cover";
 import {ClassCollage, PetCollage } from "./collage"
-import Signature from "./signature"
 
 const PageCover = React.forwardRef((props, ref) => {
   return (
@@ -51,9 +50,6 @@ function StudentPage(props) {
           </Page>
         );
       })}
-      <InsertPage>
-        <Signature />
-      </InsertPage>
       <InsertPage>
         <PetCollage />
       </InsertPage>

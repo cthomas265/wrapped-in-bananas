@@ -24,7 +24,7 @@ const MessageBoard = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <Message messages={messages} title="Class messages:" />
+            <Message messages={messages} title="Messages from your class:" />
           )}
         </div>
       </div>

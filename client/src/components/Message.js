@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { UPDATE_MESSAGE, DELETE_MESSAGE } from "../utils/mutations";
+import { DELETE_MESSAGE } from "../utils/mutations";
+import { Button } from "@mantine/core"
 
 const Message = ({ messages, title }) => {
   // const updateMessage = useMutation(UPDATE_MESSAGE);
@@ -40,14 +41,14 @@ const Message = ({ messages, title }) => {
         messages.map((message) => (
           <div key={message._id}>
             <p>
-              {message.username} message on {message.createdAt}
+              Posted by <b>{message.username}</b> on {message.createdAt}
             </p>
             <div>
               <p>{message.messageBody}</p>
             </div>
             <div>
               {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
-              <button
+              <Button
                 onClick={() => {
                   handleDeleteMessage(message._id);
                   setAlert(true);
@@ -55,7 +56,7 @@ const Message = ({ messages, title }) => {
                 }}
               >
                 Delete
-              </button>
+              </Button>
             </div>
           </div>
         ))}
