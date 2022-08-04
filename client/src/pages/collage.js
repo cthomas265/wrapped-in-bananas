@@ -5,16 +5,20 @@ import pets from "./images/pet-collage.JPG"
 const ClassCollage = () => {
  
     return (
+      <Center>
       <div style={{ backgroundImage: `url(${collage})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 900, height: 700}}>
       </div>
+      </Center>
     );
   };
 
   const PetCollage = () => {
  
     return (
+      <Center>
       <div style={{ backgroundImage: `url(${pets})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"fit", width: 900, height: 700}}>
       </div>
+      </Center>
     );
   };
   
