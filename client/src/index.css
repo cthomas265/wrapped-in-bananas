@@ -84,3 +84,8 @@ h1, h2, h3, p {
 .pets {
     padding: 50px;
 }
+
+.collages {
+  justify-content: center;
+  padding-top: 25px;
+}
