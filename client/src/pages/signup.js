@@ -68,7 +68,7 @@ const Signup = () => {
         <Button type="submit"  
                 radius='md' 
                 size="lg" 
-                color="#e07a5f">
+                color="cyan">
                   Signup
                 </Button>
       </form>

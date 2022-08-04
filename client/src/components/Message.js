@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { DELETE_MESSAGE } from "../utils/mutations";
+import { ALL_MESSAGES } from "../utils/queries";
 import { Button, Card } from "@mantine/core";
 
 const Message = ({ messages }) => {
-  // const updateMessage = useMutation(UPDATE_MESSAGE);
-  const [deleteMessage, { error }] = useMutation(DELETE_MESSAGE);
+  // const updateMessage = useMutation(UPDATE_MESSAGE, {
+  //   refetchQueries: [
+  //     {query: ALL_MESSAGES},
+  //     "messages"
+  //   ]
+  // });
+
+  const [deleteMessage] = useMutation(DELETE_MESSAGE, {
+    refetchQueries: [
+      {query: ALL_MESSAGES},
+      "messages"
+    ]
+  });
 
   const [alert, setAlert] = useState(false);
 
@@ -20,7 +32,6 @@ const Message = ({ messages }) => {
 
   const handleDeleteMessage = async (id) => {
     try {
-      // console.log(id);
       await deleteMessage({
         variables: { _id: id },
       });
@@ -54,13 +65,16 @@ const Message = ({ messages }) => {
             </Card>
             <div>
               {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
+
+
+
+
               <Button
                 type="submit"
                 color="gray"
                 onClick={() => {
                   handleDeleteMessage(message._id);
                   setAlert(true);
-                  window.location.reload();
                 }}
               >
                 Delete
