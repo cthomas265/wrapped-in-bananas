@@ -26,7 +26,6 @@
 
 #### Creators
 
-## Contributions
 * Aubree Alexander - [GitHub](https://github.com/aubree-alexander)
 * Carrie Thomas - [GitHub](https://github.com/cthomas265)
 * Brian Wood - [GitHub](https://github.com/woodb58)
