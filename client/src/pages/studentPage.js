@@ -8,15 +8,23 @@ import {ClassCollage, PetCollage } from "./collage"
 
 const PageCover = React.forwardRef((props, ref) => {
   return (
-    <div className="page page-cover " ref={ref} data-density="hard">
-      <div className="page-content">{props.children}</div>
+    <div className="page page-cover page-cover-top" ref={ref} data-density="hard" >
+      <div className="page-content" >{props.children}</div>
+    </div>
+  );
+});
+
+const PageCoverBack = React.forwardRef((props, ref) => {
+  return (
+    <div className="page page-cover page-cover-bottom" ref={ref} data-density="hard" >
+      <div className="page-content" >{props.children}</div>
     </div>
   );
 });
 
 const InsertPage = React.forwardRef((props, ref) => {
   return (
-    <div className="page" ref={ref}>
+    <div className="page page-cover" ref={ref}>
       <div className="page-content">{props.children}</div>
     </div>
   );
@@ -34,7 +42,7 @@ const Page = React.forwardRef((props, ref) => {
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={700} height={700} className="demo-block600">
+    <HTMLFlipBook width={900} height={700} className="demo-block">
       <PageCover>
         <FrontCover />
       </PageCover>
@@ -51,9 +59,9 @@ function StudentPage(props) {
       <InsertPage>
         <PetCollage />
       </InsertPage>
-      <PageCover>
+      <PageCoverBack>
         <BackCover />
-      </PageCover>
+      </PageCoverBack>
     </HTMLFlipBook>
   );
 }
