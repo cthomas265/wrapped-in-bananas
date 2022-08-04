@@ -5,8 +5,8 @@ const ClassCollage = () => {
     return (
       <div>
         <Image 
-            width={600}
-            height={800}
+            width="40vw"
+            height="100vh"
             src={require ('./images/class-collage.JPG')}
             alt='class collage'
             // <img src={require ('./images/pet-collage.JPEG')} alt='pet collage' />
@@ -20,8 +20,8 @@ const ClassCollage = () => {
     return (
      <div>
         <Image 
-            width={600}
-            height={800}
+            width="40vw"
+            height="100vh"
             src={require ('./images/pet-collage.JPEG')}
             alt='pet collage'
         />
