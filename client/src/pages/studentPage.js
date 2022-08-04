@@ -36,7 +36,7 @@ const Page = React.forwardRef((props, ref) => {
 
 function StudentPage(props) {
   return (
-    <HTMLFlipBook width={600} height={800} className="demo-block600">
+    <HTMLFlipBook width={800} height={800} className="demo-block600">
       <PageCover >
         <FrontCover />
       </PageCover>
