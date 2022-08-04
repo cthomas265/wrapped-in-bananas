@@ -110,8 +110,17 @@ p {
 
 .messageCard {
   margin: 10px 80px;
+  background-color: rgba(236, 234, 234, 0.699);
 }
 
-.messageBy {
-  /* font-weight: lighter; */
+.messageText {
+  margin: 20px 10px;
+}
+
+.messageTextBox {
+  margin: 20px 10px;
+}
+
+.messageForm {
+  background-color: rgba(236, 234, 234, 0.699);
 }
