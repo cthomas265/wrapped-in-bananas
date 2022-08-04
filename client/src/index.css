@@ -13,44 +13,6 @@ code {
     monospace;
 }
 
-/* signature styles */
-.signaturePage {
-  text-align: center;
-}
-
-.signatureCanvas {
-  border: 1px solid black;
-  width: 100%;
-  min-height: 500px;
-  justify-content: center;
-}
-
-.signatureBtn {
-  margin: 4px;
-}
-
-.signatureImage {
-  display: inline-block;
-  margin: 2px;
-  border: solid black;
-  background-color: #f4f1de;
-  width: 20rem;
-  height: 8rem;
-  border-width: medium;
-  border-radius: 15%;
-}
-
-.popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-  margin: auto;
-  background: rgb(255, 255, 255);
-  width: 50%;
-  padding: 5px;
-}
-
 .Page {
   right: 50%;
 }
@@ -101,6 +63,53 @@ Button {
   padding-top: 25px;
 }
 
+/* signature styles */
+.signaturePage {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.signatureCanvas {
+  border: 1px solid black;
+  width: 100%;
+  min-height: 500px;
+  justify-content: center;
+}
+
+.signatureBtn {
+  margin: 5px 4px 20px;
+}
+
+.signatureImage {
+  display: inline-block;
+  margin: 2px;
+  border: solid black;
+  background-color: #f4f1de;
+  width: 20rem;
+  height: 8rem;
+  border-width: medium;
+  border-radius: 15%;
+}
+
+.popup {
+  width: 200px;
+  height: 100px;
+  background: yellow;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+}
+
+/* end signature page styles */
+
 /* message board styles */
 .messagePage {
   text-align: center;
@@ -133,3 +142,4 @@ Button {
 .messageForm {
   background-color: rgba(236, 234, 234, 0.699);
 }
+/* end message board styles */

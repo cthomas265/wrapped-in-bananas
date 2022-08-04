@@ -48,7 +48,7 @@ const Signature = () => {
       <Popup
         modal
         overlayStyle
-        trigger={<Button className={"signatureBtn"}>Open Signature Pad</Button>}
+        trigger={<Button className={"signatureBtn"} color="cyan">Open Signature Pad</Button>}
         closeOnDocumentClick={true}
         className={"popup"}
       >
@@ -61,15 +61,15 @@ const Signature = () => {
               }}
             />
             <div>
-              <button onClick={clear} className={"signatureBtn"}>
+              <Button color="cyan" onClick={clear} className={"signatureBtn"}>
                 Clear
-              </button>
-              <button onClick={close} className={"signatureBtn"}>
+              </Button>
+              <Button color="cyan" onClick={close} className={"signatureBtn"}>
                 Close
-              </button>
-              <button onClick={save} className={"signatureBtn"}>
+              </Button>
+              <Button color="cyan" onClick={save} className={"signatureBtn"}>
                 Save
-              </button>
+              </Button>
             </div>
           </>
         )}
