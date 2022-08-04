@@ -59,7 +59,7 @@ const StudentData = [
   {
     img: cameron,
     name: "Cameron Sickler",
-    bio: "Hello, I live in Madison Wisconsin. I graduated with a Bachelors in Communications and worked an insurance job for 3 years. Wasn't crazy about it, spent too much time on the phone with customers in a call center environment. I love computers and know that this would open some career doors so here I am. Big video game.",
+    bio: "Hello, I live in Madison Wisconsin. I graduated with a Bachelors in Communications and worked an insurance job for 3 years. Wasn't crazy about it, spent too much time on the phone with customers in a call center environment. I love computers and know that this would open some career doors so here I am.",
   },
   {
     img: carolyn,
@@ -69,7 +69,7 @@ const StudentData = [
   {
     img: carrie,
     name: "Carrie Thomas",
-    bio: "Ive always liked computers but fell out of it for a while. I wanted something remote, ive never been one to stay in 1 place for long. I don't like following rules, or expectations either. I agree Aubree this is harder than they explained. Im waiting for it to be fun ha",
+    bio: "Ive always liked computers but fell out of it for a while. I wanted something remote, I've never been one to stay in 1 place for long. I don't like following rules, or expectations either.",
   },
   {
     img: david,
@@ -98,7 +98,7 @@ const StudentData = [
   },
   {
     img: joshN,
-    name: "joshN",
+    name: "Josh Naylor",
     bio: "I don't have a bio.",
   },
   {
@@ -109,7 +109,7 @@ const StudentData = [
   {
     img: kristina,
     name: "Kristina Brennan",
-    bio: "I’m Kristina. I started trying to dabble with C++ 3 years ago. It did not go too well. But then about 6 months ago I started teaching myself to code (again). And the same week that classes started, I also was able to transfer over to a web developer position at my current company (where I was an HR assistant for a year.) I also play video games. I have a PS4 and a PC. Lately I’ve just been playing Overwatch. I’ve always been interested in computers. Logical stuff like coding has always been right up my alley. Like, I loved calculus for example. I knew I always wanted to get into STEM. One of my best friends, Max, started teaching himself how to code in C++ back in 2017 and showed me some of what he was doing. He recommended a class to me, I took it. And I absolutely loved it. (I cried a little bit a few times) but other than that, I loved every second of it. I didn’t study much after that thanks to imposter syndrome. But with the cost of things rising and HR making me feel burnt out and unmotivated, I knew it was time for me to change career paths. One of the web devs at my work told me about bootcamps and now here I am!"
+    bio: "I’m Kristina. I started trying to dabble with C++ 3 years ago. But then about 6 months ago I started teaching myself to code (again). And the same week that classes started, I also was able to transfer over to a web developer position at my current company (where I was an HR assistant for a year.) I also play video games. I have a PS4 and a PC. I’ve always been interested in computers. Logical stuff like coding has always been right up my alley. Like, I loved calculus for example. I knew I always wanted to get into STEM. With the cost of things rising and HR making me feel burnt out and unmotivated, I knew it was time for me to change career paths. One of the web devs at my work told me about bootcamps and now here I am!"
   },
   {
     img: micah,
@@ -124,27 +124,27 @@ const StudentData = [
   {
     img: mikeS,
     name: "Mike Samm",
-    bio: "I'm Michael. I've been working in software QA most of the last 7 years and am ready to make the jump to actually solving the problems and creating content rather than just breaking it all the time. I'm in Madison, WI and the (too small) part of the year where it's warm I try get outside as much as possible hiking, biking, live music, etc. Otherwise on the board and video game trend here (another ESO! on xbox but suuuuuuuper rusty).",
+    bio: "I'm Michael. I've been working in software QA most of the last 7 years and am ready to make the jump to actually solving the problems and creating content rather than just breaking it all the time. I'm in Madison, WI and the (too small) part of the year where it's warm I try get outside as much as possible hiking, biking, live music, etc. Otherwise I play video games (another ESO! on xbox but suuuuuuuper rusty).",
   },
   {
     img: pat,
     name: "Patrick Archer",
-    bio: "I haven’t found a job I like, I want to work in an office/remote, I need a higher income, I’m drawn to frontend design and have always been creative, and I tried to teach myself to code during quarantine but needed more structure and extrinsic motivation (a hefty loan lol). I saw an Instagram ad one night and sort of applied on an impulse. I didn’t look around too hard for what the best options were, but I’m overall happy with the bootcamp, I think it’s well rounded and will lead to a job!",
+    bio: "I'm Patrick. I haven’t found a job I like, I want to work in an office/remote, I need a higher income, I’m drawn to frontend design and have always been creative, and I tried to teach myself to code during quarantine but needed more structure and extrinsic motivation (a hefty loan lol). I saw an Instagram ad one night and sort of applied on an impulse. I didn’t look around too hard for what the best options were, but I’m overall happy with the bootcamp, I think it’s well rounded and will lead to a job!",
   },
   {
     img: sajid,
     name: "Sajid Jaber",
-    bio: "Hello I’m Sajid I have a Bachler's in Computer Science from UW whitewater I love coding and learning new things. I  like to play video game"
+    bio: "Hello I’m Sajid I have a Bachlelor's in Computer Science from UW Whitewater. I love coding and learning new things. I  like to play video games."
   },
   {
     img: raj,
     name: "Raj Rai",
-    bio: "insert bio here"
+    bio: "I'm an awesome TA but didn't give the team a bio."
   },
   {
     img: robby,
     name: "robby",
-    bio: "I'm the world's best tutor. I like pizza and have never been defeated at  Wii Tennis.",
+    bio: "I'm a climber bum boxer who somehow graduated from University of Florida and took the Bootcamp in 2018. I used to teach English and owned a farm in California. I've been tutoring since 2019 and worked as a Front End Engineer and Test Engineer in Java through 2021. I am currently working on data for a project called Wikiclimber. I like pizza, short walks on the beach, and I have never been defeated at Wii Tennis.",
   },
   {
     img: scott,
