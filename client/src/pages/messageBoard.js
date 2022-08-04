@@ -7,6 +7,7 @@ import MessageForm from "../components/MessageForm";
 
 const MessageBoard = () => {
   const { loading, data } = useQuery(ALL_MESSAGES);
+  
   const messages = data?.messages || [];
 
   const loggedIn = Auth.loggedIn();

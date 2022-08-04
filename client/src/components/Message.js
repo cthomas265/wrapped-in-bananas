@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_MESSAGE, DELETE_MESSAGE } from "../utils/mutations";
 
 const Message = ({ messages, title }) => {
-  const updateMessage = useMutation(UPDATE_MESSAGE);
-  const deleteMessage = useMutation(DELETE_MESSAGE);
+  // const updateMessage = useMutation(UPDATE_MESSAGE);
+  const [deleteMessage, { error }] = useMutation(DELETE_MESSAGE);
+
+  const [alert, setAlert] = useState(false);
+
+  useEffect(() => {
+    const change = setTimeout(() => {
+      setAlert(false);
+    }, 800);
+    return () => clearTimeout(change);
+  }, [alert]);
 
   // const handleUpdateMessage = async ()
-  // const handleDeleteMessage = async ()
 
+  const handleDeleteMessage = async (id) => {
+    try {
+      // console.log(id);
+      await deleteMessage({
+        variables: { _id: id },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   if (!messages.length) {
     return <h3>No Messages Yet!</h3>;
@@ -17,6 +35,7 @@ const Message = ({ messages, title }) => {
   return (
     <div>
       <h3>{title}</h3>
+      {alert ? <h4>Your message has been deleted</h4> : ""}
       {messages &&
         messages.map((message) => (
           <div key={message._id}>
@@ -28,7 +47,15 @@ const Message = ({ messages, title }) => {
             </div>
             <div>
               {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
-              {/* <button onClick={() => handleDeleteMessage(message._id)}>Delete</button> */}
+              <button
+                onClick={() => {
+                  handleDeleteMessage(message._id);
+                  setAlert(true);
+                  window.location.reload();
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
