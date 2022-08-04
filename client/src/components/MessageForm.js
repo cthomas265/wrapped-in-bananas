@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_MESSAGE } from "../utils/mutations";
 import { ALL_MESSAGES } from "../utils/queries";
+import { Textarea, Button } from '@mantine/core';
 
 const MessageForm = () => {
   const [messageBody, setMessageBody] = useState("");
@@ -37,17 +38,21 @@ const MessageForm = () => {
 
   return (
     <div>
-      <p className={`${characterCount === 280 || error ? "text-error" : ""}`}>
-        Character Count: {characterCount}/280
-        {error && <span>Something went wrong...</span>}
-      </p>
+      
       <form onSubmit={handleFormSubmit}>
-        <textarea
+        <Textarea
+        
           placeholder="Write your message here..."
           value={messageBody}
           onChange={handleChange}
-        ></textarea>
-        <button type="submit">Submit</button>
+          autosize
+          minRows={4}
+        ></Textarea>
+        <p className={`${characterCount === 280 || error ? "text-error" : ""}`}>
+        Character Count: {characterCount}/280
+        {error && <i> - Please write a message!</i>}
+      </p>
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );
