@@ -5,7 +5,7 @@ import pets from "./images/pet-collage.JPG"
 const ClassCollage = () => {
  
     return (
-      <div style={{ backgroundImage: `url(${collage})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 900, height: 700}}>
+      <div style={{ backgroundImage: `url(${collage})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 700, height: 700}}>
       </div>
     );
   };
@@ -13,7 +13,7 @@ const ClassCollage = () => {
   const PetCollage = () => {
  
     return (
-      <div style={{ backgroundImage: `url(${pets})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"fit", width: 900, height: 700}}>
+      <div style={{ backgroundImage: `url(${pets})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"fit", width: 700, height: 700}}>
       </div>
     );
   };

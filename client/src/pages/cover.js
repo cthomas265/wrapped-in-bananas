@@ -2,7 +2,7 @@ import pic from "./images/cover.png";
 
 function FrontCover() {
   return (
-    <div className="page-cover" style={{backgroundImage: `url(${pic})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 850, height: 700}}>
+    <div className="page-cover" style={{backgroundImage: `url(${pic})`, backgroundRepeat:"no-repeat", backgroundPosition:"center", backgroundSize:"cover", width: 650, height: 700}}>
       <div className="coverContent">
       </div>
     </div>
