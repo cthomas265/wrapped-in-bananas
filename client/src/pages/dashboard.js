@@ -2,17 +2,32 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { USER } from "../utils/queries";
 import Auth from "../utils/auth";
+//import mantine
+import { Image } from '@mantine/core';
+// import { Routes, Route } from 'react-router-dom'
+import { Button } from '@mantine/core';
+
 
 const Dashboard = () => {
+
+
+
+    const navigateToPages = () => {
+      //navgiate to yearbook pages
+      navigate('/page')
+    }
+
   const navigate = useNavigate();
   const currentUser = Auth.loggedIn();
-
+  console.log(currentUser?.data?._id)
   const { loading, error, data } = useQuery(USER, {
     variables: {
-      _id: currentUser?.data?._id,
+      _id: currentUser.data._id,
+      email: currentUser.data.email,
+      username: currentUser.data.username,
     },
   });
-
+  console.log(data?.user)
   if (!currentUser) {
     navigate("/login");
   }
@@ -28,9 +43,17 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Welcome, {user.username}</h1>
-      <p>{user.email}</p>
-      <button onClick={Auth.logout}>Log Out</button>
+      <h1>Welcome {user.username}</h1>
+      <Button onClick={Auth.logout}>Log Out</Button>
+      <Button onClick={navigateToPages}>View yearbook</Button>
+      <div>
+        <Image 
+            width={1500}
+            height={800}
+            src={require ('./images/class-background.JPEG')}
+            alt='class background'
+        />
+     </div>
     </div>
   );
 };

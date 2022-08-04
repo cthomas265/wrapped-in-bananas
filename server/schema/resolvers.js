@@ -1,14 +1,13 @@
-const { User } = require("../models");
+const { User, Signature, Message } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
     users: async (parent, args, context, info) => {
-      return await User.find();
+      return await User.find().populate("messages")
     },
     user: async (parent, args, context, info) => {
-      
       if (!args._id && !args.email && !args.username) {
         throw new AuthenticationError(
           "You need to search for a user by _id, email, or username"
@@ -25,7 +24,14 @@ const resolvers = {
       if (args.username) {
         where.username = args.username;
       }
-      return await User.findOne(where);
+      return await User.findOne(where).populate("messages")
+    },
+    signatures: async () => {
+      return Signature.find();
+    },
+    messages: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Message.find(params).sort({ createdAt: -1 });
     },
   },
   Mutation: {
@@ -61,8 +67,61 @@ const resolvers = {
     updateUser: async (parent, args, context, info) => {
       return await User.findByIdAndUpdate(args._id, args, { new: true });
     },
-    deleteUser: async (parent, args, context, info) => {
-      return await User.findByIdAndDelete(args._id);
+    addSignature: async (parent, args, context, info) => {
+      console.log(args);
+      return await Signature.create(args);
+    },
+    addMessage: async (parent, args, context) => {
+      if (context.user) {
+        const message = await Message.create({
+          ...args,
+          username: context.user.username,
+        });
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { messages: message._id } },
+          { new: true }
+        );
+        return message;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateMessage: async (parent, args, context, info) => {
+      if (context.user) {
+        const foundMessage = await Message.findById(args._id);
+        if (foundMessage.username === context.user.username) {
+          const updatedMessage = await Message.findOneAndUpdate(
+            { _id: args._id },
+            args,
+            { new: true }
+          );
+          return updatedMessage;
+        } else {
+          throw new AuthenticationError(
+            "You are not allowed to update this post."
+          );
+        }
+      }
+    },
+    deleteMessage: async (parent, args, context, info) => {
+      if (context.user) {
+        const messageToDelete = await Message.findById(args._id);
+        console.log(messageToDelete, context.user)
+        if (messageToDelete.username === context.user.username) {
+         
+          const deletedMessage = await Message.findByIdAndDelete(args._id)
+          
+          await User.findOneAndUpdate(
+            { username: context.user.username },
+            { $pull:  { messages: args._id }},
+            { new: true }
+          );
+          console.log("messages", deletedMessage)
+          return deletedMessage;
+        } else {
+          throw new AuthenticationError("Cannot delete this message.");
+        }
+      }
     },
   },
 };

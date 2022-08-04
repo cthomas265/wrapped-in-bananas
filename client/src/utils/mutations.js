@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const LOGIN = gql`
-  mutation Login($username: String!, $password: String!) {
+  mutation login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
       token
       user {
@@ -14,8 +14,18 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation AddUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+    $classCode: String!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+      classCode: $classCode
+    ) {
       token
       user {
         _id
@@ -27,7 +37,7 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation UpdateUser(
+  mutation updateUser(
     $_id: ID
     $email: String
     $password: String
@@ -47,11 +57,47 @@ export const UPDATE_USER = gql`
 `;
 
 export const DELETE_USER = gql`
-  mutation DeleteUser($_id: ID) {
+  mutation deleteUser($_id: ID) {
     deleteUser(_id: $_id) {
       _id
       username
       email
+    }
+  }
+`;
+
+export const ADD_SIGNATURE = gql`
+  mutation addSignature($imageURL: String) {
+    addSignature(imageURL: $imageURL) {
+      _id
+      imageURL
+    }
+  }
+`;
+
+export const ADD_MESSAGE = gql`
+  mutation addMessage($messageBody: String!) {
+    addMessage(messageBody: $messageBody) {
+      _id
+      messageBody
+      createdAt
+      username
+    }
+  }
+`;
+
+export const UPDATE_MESSAGE = gql`
+  mutation updateMessage($messageBody: String!, $_id: ID!) {
+    updateMessage(messageBody: $messageBody, _id: $_id) {
+      messageBody
+    }
+  }
+`;
+
+export const DELETE_MESSAGE = gql`
+  mutation deleteMessage($_id: ID!) {
+    deleteMessage(_id: $_id) {
+      _id
     }
   }
 `;
