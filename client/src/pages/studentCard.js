@@ -2,13 +2,11 @@ import React from "react";
 
 const StudentCard = (props) => {
   return (
-    <div className="page-content">
-      <img src={props.img} alt="student image" className="page-image" />
-      <div>
+    <section className="page-content">
+      <img src={props.img} style={{height: 600, width: 900}} alt="student image" className="page-image" />
         <h2 className="page-header">{props.name}</h2>
-        <p className="page-text">{props.bio}</p>
-      </div>
-    </div>
+        <p className="page-text " style={{maxWidth: "95%"}} >{props.bio}</p>
+    </section>
   );
 };
 

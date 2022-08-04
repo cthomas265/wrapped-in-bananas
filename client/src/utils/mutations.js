@@ -86,8 +86,18 @@ export const ADD_MESSAGE = gql`
   }
 `;
 
-// export const UPDATE_MESSAGE = gql`
-//  mutation updateMessage($messageBody: String!) {
-  
-//  }
-// `
+export const UPDATE_MESSAGE = gql`
+  mutation updateMessage($messageBody: String!, $_id: ID!) {
+    updateMessage(messageBody: $messageBody, _id: $_id) {
+      messageBody
+    }
+  }
+`;
+
+export const DELETE_MESSAGE = gql`
+  mutation deleteMessage($_id: ID!) {
+    deleteMessage(_id: $_id) {
+      _id
+    }
+  }
+`;
