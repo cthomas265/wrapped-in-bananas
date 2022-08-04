@@ -1,26 +1,36 @@
 import React, { useState, useEffect } from "react";
+import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { DELETE_MESSAGE, UPDATE_MESSAGE } from "../utils/mutations";
 import { ALL_MESSAGES } from "../utils/queries";
 import { Button, Card } from "@mantine/core";
 
-const Message = ({ messages, user }) => {
-  const updateMessage = useMutation(UPDATE_MESSAGE, {
-    refetchQueries: [
-      {query: ALL_MESSAGES},
-      "messages"
-    ]
+const Message = ({ messages }) => {
+  const user = Auth.getLoggedInUser();
+  console.log(user);
+
+  const [messageToEdit, setMessageToEdit] = useState(null);
+  console.log(messageToEdit);
+
+  const [updateMessage] = useMutation(UPDATE_MESSAGE, {
+    refetchQueries: [{ query: ALL_MESSAGES }, "messages"],
   });
 
+  const handleSaveEdit = async () => {
+    await updateMessage({
+      variables: {
+        messageBody: messageToEdit.messageBody,
+        _id: messageToEdit._id,
+      },
+    });
+    setMessageToEdit(null);
+  };
+
   const [deleteMessage] = useMutation(DELETE_MESSAGE, {
-    refetchQueries: [
-      {query: ALL_MESSAGES},
-      "messages"
-    ]
+    refetchQueries: [{ query: ALL_MESSAGES }, "messages"],
   });
 
   const [alert, setAlert] = useState(false);
-  // const [currentUser, setCurrentUser] = useState()
 
   useEffect(() => {
     const change = setTimeout(() => {
@@ -28,8 +38,6 @@ const Message = ({ messages, user }) => {
     }, 800);
     return () => clearTimeout(change);
   }, [alert]);
-
-  // const handleUpdateMessage = async ()
 
   const handleDeleteMessage = async (id) => {
     try {
@@ -40,7 +48,6 @@ const Message = ({ messages, user }) => {
       console.error(err);
     }
   };
-
 
   if (!messages.length) {
     return <h3>No Messages Yet!</h3>;
@@ -63,27 +70,43 @@ const Message = ({ messages, user }) => {
               Posted by <b>{message.username}</b> on {message.createdAt}
             </p>
             <Card shadow="sm" className="messageText">
-              <p>{message.messageBody}</p>
+              {messageToEdit?._id === message._id ? (
+                <>
+                  <input
+                    type="text"
+                    value={messageToEdit.messageBody}
+                    onChange={(e) =>
+                      setMessageToEdit({
+                        ...messageToEdit,
+                        messageBody: e.target.value,
+                      })
+                    }
+                  />
+                  <Button onClick={handleSaveEdit}>Save</Button>
+                  <Button onClick={() => setMessageToEdit(null)}>Cancel</Button>
+                </>
+              ) : (
+                <p>{message.messageBody}</p>
+              )}
             </Card>
             <div>
-              {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
-
-
-              {/* {currentUser ?  */}
-              <Button
-                type="submit"
-                color="gray"
-                onClick={() => {
-                  handleDeleteMessage(message._id);
-                  setAlert(true);
-                }}
-              >
-                Delete
-              </Button> 
-              {/* : null
-            }  */}
-
-              
+              {user.username === message.username && (
+                <>
+                  <Button
+                    type="submit"
+                    color="gray"
+                    onClick={() => {
+                      handleDeleteMessage(message._id);
+                      setAlert(true);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                  <Button onClick={() => setMessageToEdit(message)}>
+                    Edit
+                  </Button>
+                </>
+              )}
             </div>
           </Card>
         ))}
