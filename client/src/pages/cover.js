@@ -1,5 +1,4 @@
-// import pic from "./images/cover.png";
-import pic from './images/wood-grain.png'
+import pic from "./images/cover.png";
 
 function FrontCover() {
   return (
