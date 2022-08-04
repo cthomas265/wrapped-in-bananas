@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { UPDATE_MESSAGE, DELETE_MESSAGE } from "../utils/mutations";
+import { DELETE_MESSAGE } from "../utils/mutations";
+import { Button, Card } from "@mantine/core";
 
-const Message = ({ messages, title }) => {
+const Message = ({ messages }) => {
   // const updateMessage = useMutation(UPDATE_MESSAGE);
   const [deleteMessage, { error }] = useMutation(DELETE_MESSAGE);
 
@@ -34,20 +35,28 @@ const Message = ({ messages, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
-      {alert ? <h4>Your message has been deleted</h4> : ""}
+      {alert ? <i className="alert">Your message has been deleted</i> : ""}
       {messages &&
         messages.map((message) => (
-          <div key={message._id}>
+          <Card
+            key={message._id}
+            shadow="sm"
+            p="lg"
+            radius="md"
+            withBorder
+            className="messageCard"
+          >
             <p>
-              {message.username} message on {message.createdAt}
+              Posted by <b>{message.username}</b> on {message.createdAt}
             </p>
-            <div>
+            <Card shadow="sm" className="messageText">
               <p>{message.messageBody}</p>
-            </div>
+            </Card>
             <div>
               {/* <button onClick={() => handleUpdateMessage(message._id)}>Edit</button> */}
-              <button
+              <Button
+                type="submit"
+                color="gray"
                 onClick={() => {
                   handleDeleteMessage(message._id);
                   setAlert(true);
@@ -55,9 +64,9 @@ const Message = ({ messages, title }) => {
                 }}
               >
                 Delete
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card>
         ))}
     </div>
   );

@@ -7,13 +7,15 @@ import MessageForm from "../components/MessageForm";
 
 const MessageBoard = () => {
   const { loading, data } = useQuery(ALL_MESSAGES);
-  
+
   const messages = data?.messages || [];
 
   const loggedIn = Auth.loggedIn();
 
   return (
-    <main>
+    <main className="messagePage">
+      <h1>Message Board</h1>
+      <h3>Leave a message for your classmates!</h3>
       <div>
         {loggedIn && (
           <div>
@@ -21,11 +23,7 @@ const MessageBoard = () => {
           </div>
         )}
         <div>
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <Message messages={messages} title="Class messages:" />
-          )}
+          {loading ? <div>Loading...</div> : <Message messages={messages} />}
         </div>
       </div>
     </main>
